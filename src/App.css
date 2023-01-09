@@ -224,7 +224,7 @@ border-radius:50%;
  justify-content: flex-end;
  align-items: flex-end;
 }
-.size label{
+.size-list label{
  font-family: 'Open Sans';
  font-style: normal;
  font-weight: 600;
@@ -563,21 +563,30 @@ align-items: center;
  width:70%;
  height: 250px;
 }
-.list-checked div{
- width: 105px;
- height: 112px;
- margin: 6px 8px;
- cursor: pointer;
+.list-checked-cat{
+  width: 100%;
+  height: 50%;
+ 
+  overflow: scroll;
 }
+.list-checkeds{
+  width: 105px;
+  height: 112px;
+  display: block;
+  margin: 6px 8px;
+  cursor: pointer;
+}
+
 .list-checked img{
  width: 100%;
  height: 100%;
 }
-.list-checked-active img{
+.list-checkeds-active img{
  width: 100%;
  height: 100%;
 }
-.list-checked-active{
+
+.list-checkeds-active{
  width: 105px;
  height: 112px;
  margin: 6px 8px;
@@ -839,6 +848,7 @@ header{
 .hudud select{
  width: 40%;
  height: 40px;
+ border-radius:5px ;
  margin-left: 20px;
  text-align: center;
  background: #00A0FA;
@@ -852,6 +862,7 @@ header{
  color: #FFFFFF;
 }
 .hudud option{
+  background-color: #d4d1d1;
  margin-top: 10px;
 }
 .width{
@@ -862,12 +873,17 @@ header{
  justify-content: center;
  align-items: center;
 }
-.width label{
+.width label:nth-child(2){
  width: 100%;
 height: 20%;
 display: flex;
 justify-content: flex-end;
 align-items: flex-start;
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+color: #4154F1
 }
 .width-div{
  width: 100%;
@@ -887,6 +903,9 @@ align-items: flex-start;
 .width-div input:nth-child(1){
  display: none;
 }
+.width label:nth-child(1){
+  display: none;
+ }
 /* #heights{
  display: none;
 } */
@@ -954,6 +973,11 @@ align-items: flex-start;
  align-items: center;
 }
 .width label:nth-child(1){
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
  justify-content: flex-start;
 }
 #heights{
@@ -1024,7 +1048,7 @@ align-items: flex-start;
  flex-wrap: wrap;
  justify-content: center;
  align-items: center;
- background: #E5F8FE;
+ background: #f2f548;
  border-radius: 5px;
 }
 .icon-box-error{

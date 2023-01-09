@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Catagorie} from '../image/image';
+import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import { GrFormNext ,GrStatusWarning,GrUser} from "react-icons/gr";  
 import { AiFillCheckCircle,AiOutlineCloseCircle,AiFillWarning } from "react-icons/ai";
 import "../App.css"
@@ -10,7 +10,7 @@ import "../App.css"
 function Room(){
    let sms=0;
    const [autothion,setAutothion]=useState({
-      token:"",
+      typeID:1,
       generateNumber:0,
    })
 //    let headers = new Headers();
@@ -158,8 +158,8 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
                {
-                 Catagorie.map(item=>{
-                  if(item.id===data.category){
+                 Type.map(item=>{
+                  if(item.Typeid===autothion.typeID){
                      return (
                         <img key={item.id} src={item.image} alt={item.alt}/>
                      )
@@ -170,16 +170,32 @@ function Room(){
             </div>
               <div className='color-title'>Romni rangini tanlang</div>
               <div className="list-checked dc-t">
+               <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
+                    {
+                       Type.map(item=>{
+                          return (
+                             <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "list-checkeds-active":"list-checkeds"}
+                              onClick={()=>{autothion.typeID=item.Typeid
+                              setAutothion({...autothion})}} >
+                                <img  src={item.image} alt={item.Typeid} />
+                             </div>
+                          )
+                       })
+                    }
+               </div>
+               <div className="list-checked-cat">
                {
-                  Catagorie.map(item=>{
+                 Catagorie.filter(item=>item.Typeid===autothion.typeID)
+                .map(item=>{
                      return (
-                        <div key={item.id} className={data.category===item.id ? "list-checked-active":"list-checked"}
-                         onClick={()=>Catagoriya(item.id)}>
+                        <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
+                         onClick={()=>Catagoriya(item.id)} >
                            <img  src={item.image} alt={item.alt} />
                         </div>
                      )
                   })
                }
+               </div>
               </div>
             </div>
               <div className='dc-t footer'>
@@ -213,7 +229,7 @@ function Room(){
                      shelfSize.map(item=>{
                        return (
                         <div key={item.id} 
-                        className={data.shelfSize==item.shelfSize ? "qalinlig-div-activ":"qalinlig-div"}
+                        className={data.shelfSize===item.shelfSize ? "qalinlig-div-activ":"qalinlig-div"}
                         onClick={()=>ShelfSize(item.shelfSize)}>{item.shelfSize}</div>
                        )
                      })
@@ -455,13 +471,10 @@ function Room(){
        })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data)
-            if(data){
-               setLoading(true)
-            }
-            else(setLoading(false))
+            setLoading(true)
+            
              if(data.success){
-               console.log(data)
+          
                Requreds()
                setLoading(false)
                setTimeout(()=>{setLoading(true)
@@ -471,6 +484,7 @@ function Room(){
              else if(!data.success){
                notify()
              }
+             
              // Handle data
           })
           .catch((err) => {
@@ -485,7 +499,7 @@ function Room(){
          headers:{ 
             // 'Content-Type':'application/json; charset=UTF-8',
             //          'Accept':'application/json',
-            //      'X-Requested-With':'XMLHttpRequest',
+            //      'X-Requested-With':'XMLHttpRequest'
             //        'Access-Control-Allow-Origin':'*',
             //   'Access-Control-Allow-Credentials':'true',
             //   'crossorigin':'true'
@@ -493,7 +507,7 @@ function Room(){
        })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data)
+           
             if(data.success){
             // autothion.token=data.object;
              autothion.generateNumber=data.number;
@@ -508,11 +522,11 @@ function Room(){
              // Handle data
           })
           .catch((err) => {
-             console.log(err.message);
+             console.log(err.message)  ;
           });
    }
    function req(){
-      fetch('http://185.217.131.88:8080/api/message/sms/send', {
+      fetch('http://notify.eskiz.uz/api/message/sms/send', {
          method: 'POST',
          body: JSON.stringify({
            // Add parameters here         
@@ -552,7 +566,7 @@ function Room(){
         <div className='deraza dc-t'>
           <ToastContainer />
           {
-            loading ? <div className="deraza-child">x
+            loading ? <div className="deraza-child">
             <header>
              <div  className={'logo'}>
                 <img onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />

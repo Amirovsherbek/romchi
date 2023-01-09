@@ -10,12 +10,28 @@ import uch from './uch.png'
 import turt from './turt.png'
 import shelfsize from './shelfSize.png'
 import Uzbekistan from './uzbekistan.png'
-import cat3 from './windows.svg'
-import cat1 from './catagoriya1.svg'
-import cat2 from './catagoriya23.svg'
-import cat4 from './catagoriya4.svg'
-import cat5 from './catagoriya5.svg'
-import cat6 from './catagoriya6.svg'
+// import cat3 from './windows.svg'
+import cat1 from './cat1.svg'
+import cat2 from './cat2.svg'
+import cat3 from './cat3.svg'
+import cat4 from './cat4.svg'
+import cat5 from './cat5.svg'
+import cat6 from './cat6.svg'
+import cat7 from './cat7.svg'
+import cat8 from './cat8.svg'
+import cat9 from './cat9.svg'
+import cat10 from './cat10.svg'
+import cat11 from './cat11.svg'
+import cat12 from './cat12.svg'
+import cat13 from './cat13.svg'
+import cat14 from './cat14.svg'
+import cat15 from './cat15.svg'
+import cat16 from './cat16.svg'
+import cat17 from './cat17.svg'
+import cat18 from './cat18.svg'
+import type1 from './type1.svg'
+import type2 from './type2.svg'
+import type3 from './type3.svg'
 import logo from './logo.svg'
 import arrow from './Arrow.png'
 export const Buyurtma={
@@ -74,35 +90,129 @@ export const Oyna=[
 ]
 export const Catagorie=[
     {
+        Typeid:1,
         id:1,
         image:cat1,
         alt:'catagoriya1'
     },
     {
+        Typeid:1,
         id:2,
         image:cat2,
         alt:'catagoriya1'
     },
     {
+        Typeid:1,
         id:3,
         image:cat3,
         alt:'catagoriya1'
     },
     {
+        Typeid:1,
         id:4,
         image:cat4,
         alt:'catagoriya1'
     },
     {
+        Typeid:2,
         id:5,
         image:cat5,
         alt:'catagoriya1'
     },
     {
+        Typeid:2,
         id:6,
         image:cat6,
         alt:'catagoriya1'
     },
-
+    {
+        Typeid:2,
+        id:7,
+        image:cat7,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:2,
+        id:8,
+        image:cat8,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:2,
+        id:9,
+        image:cat9,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:2,
+        id:10,
+        image:cat10,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:11,
+        image:cat11,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:12,
+        image:cat12,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:13,
+        image:cat13,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:14,
+        image:cat14,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:15,
+        image:cat15,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:16,
+        image:cat16,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:17,
+        image:cat17,
+        alt:'catagoriya1'
+    },
+    {
+        Typeid:3,
+        id:18,
+        image:cat18,
+        alt:'catagoriya1'
+    }
+]
+export const Type=[
+   {
+    Typeid:1,
+    image:type1,
+    alt:"type1"
+   },
+   {
+    Typeid:2,
+    image:type2,
+    alt:"type2"
+   },
+   {
+    Typeid:3,
+    image:type3,
+    alt:"type3"
+   }
 ]
 
