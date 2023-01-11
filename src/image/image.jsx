@@ -1,10 +1,10 @@
 // import fortichka from './fortichka.png'
 // import eshik from './eshik.png'
-import One from "./one.png"
+import One from "./one.jpg"
 import Two from './two.png'
 import Three from './three.png'
 import Four from './four.png'
-import bir from './bir.png'
+import bir from './bir.jpg'
 import ikki from './ikki.png'
 import uch from './uch.png'
 import turt from './turt.png'
@@ -34,13 +34,19 @@ import type2 from './type2.svg'
 import type3 from './type3.svg'
 import logo from './logo.svg'
 import arrow from './Arrow.png'
+import catnext from './icons/catnext.png'
+import nextpage from './icons/nextpage.png'
+import success from './icons/success.png'
 export const Buyurtma={
     // fortichka:fortichka,
     // eshik:eshik,
     deraza:cat2,
     deraza2:cat1,
     logotip:logo,
-    arrow:arrow
+    arrow:arrow,
+    catnext:catnext,
+    nextpage:nextpage,
+    success:success
 }
 export const ShelfSizes=shelfsize;
 export const Ozbekiston=Uzbekistan;

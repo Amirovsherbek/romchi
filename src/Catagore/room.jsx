@@ -3,29 +3,13 @@ import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
-import { GrFormNext ,GrStatusWarning,GrUser} from "react-icons/gr";  
-import { AiFillCheckCircle,AiOutlineCloseCircle,AiFillWarning } from "react-icons/ai";
 import "../App.css"
-
 function Room(){
    let sms=0;
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
    })
-//    let headers = new Headers();
-
-//   headers.append('Content-Type', 'application/json; charset=UTF-8');
-//   headers.append('Accept', 'application/json');
-//   headers.append('X-Requested-With', 'XMLHttpRequest');
-
-//   headers.append('Access-Control-Allow-Origin', '*');
-//   headers.append('Access-Control-Allow-Credentials', 'true');
-//   headers.append('crossorigin', 'true');
-
-//   headers.append('GET', 'POST', 'OPTIONS');
-// //   headers.append('mode', 'no-cors');
-//   headers.append('Authorization', 'Bearer ' +autothion.token);
    const [resData,setResData]=useState({
       message:"",
       success:false
@@ -45,10 +29,10 @@ function Room(){
    ]
    const [data,setData]=useState({ 
       category: 1, 
-      colorNumber: 0, 
+      colorNumber: 1, 
       companyId: 0, 
       createAt: 325436547, 
-      glassNumber: 0,
+      glassNumber: 1,
       height: 0, 
       shelfSize: 25, 
       type: 0, 
@@ -80,8 +64,10 @@ function Room(){
                      <div className='arrow2'><img style={{width:"8px",height:"225px"}} src={Buyurtma.arrow} alt="" /></div>
                 </div>
                 <div className='width '>
-                      <label htmlFor="height" id={"heights"}>Balandligi(sm)</label> 
+                      <div className='with-label'>
+                      <label htmlFor="height" >Balandligi(sm)</label> 
                       <label htmlFor="width">Eni(sm)</label> <br />
+                      </div>
                       <div className='width-div'>
                       <input type={'number'} name={"height"} id={"height"}
                         onChange={(e)=>{data.height=parseInt(e.target.value);
@@ -94,12 +80,12 @@ function Room(){
                         <button >Plastic (PVX)</button>
                         </div>
                       </div>
-                   </div>
+                </div>
                 </div>
                 <div className='dc-t footer'>
                   <div id="change-page">
-                     <button onClick={()=>Nextpage("prev")}><GrFormNext/></button>
-                     <button onClick={()=>Nextpage("next")}><GrFormNext/></button>
+                     <button onClick={()=>Nextpage("prev")} style={{color:"white"}}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
+                     <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
                   </div>
                 </div>
             </div>
@@ -116,14 +102,16 @@ function Room(){
                   {
                     Rom.map(item=>{
                      return (
-                        <div className="rom-color-div" key={item.id} 
+                        <div className='rom-color-div'
+                        key={item.id} 
                         onClick={()=>{
-                           
                            NumberChecked("rom",item.id)
-                        }}>
-                           <img src={item.image} alt={item.title} />
+                        }}><span className={data.colorNumber===item.id ? "active":"no-active"}>
+                           <img src={Buyurtma.success} alt="" /></span>
+                           <img className={data.colorNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
+                            src={item.image} alt={item.title} />
                            <br />
-                           <span>{item.title}</span>
+                           <div>{item.title}</div>
                         </div>
                      )
                     })
@@ -134,10 +122,16 @@ function Room(){
               {
                     Oyna.map(item=>{
                      return (
-                        <div className="rom-color-div" key={item.id} onClick={()=>NumberChecked("oyna",item.id)}>
-                           <img src={item.image} alt={item.title} />
+                        <div className='rom-color-div'
+                        key={item.id} 
+                        onClick={()=>{
+                           NumberChecked("oyna",item.id)
+                        }}><span className={data.glassNumber===item.id ? "active":"no-active"}>
+                           <img src={Buyurtma.success} alt="" /></span>
+                           <img className={data.glassNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
+                            src={item.image} alt={item.title} />
                            <br />
-                           <span>{item.title}</span>
+                           <div>{item.title}</div>
                         </div>
                      )
                     })
@@ -146,8 +140,8 @@ function Room(){
             </div>
              <div className='dc-t footer'>
                <div  id="change-page">
-                  <button onClick={()=>Nextpage("prev")}><GrFormNext/></button>
-                  <button onClick={()=>Nextpage("next")}><GrFormNext/></button>
+                  <button onClick={()=>Nextpage("prev")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
+                  <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
                </div>
              </div>
          </div>
@@ -158,8 +152,8 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
                {
-                 Type.map(item=>{
-                  if(item.Typeid===autothion.typeID){
+                 Catagorie.map(item=>{
+                  if(data.category===item.id){
                      return (
                         <img key={item.id} src={item.image} alt={item.alt}/>
                      )
@@ -168,7 +162,7 @@ function Room(){
                }
               
             </div>
-              <div className='color-title'>Romni rangini tanlang</div>
+              <div className='color-titles'>Romni rangini tanlang</div>
               <div className="list-checked dc-t">
                <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
                     {
@@ -183,13 +177,14 @@ function Room(){
                        })
                     }
                </div>
-               <div className="list-checked-cat">
+               <div className="list-checked-cat ">
                {
-                 Catagorie.filter(item=>item.Typeid===autothion.typeID)
+                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
                 .map(item=>{
                      return (
                         <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
                          onClick={()=>Catagoriya(item.id)} >
+                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="" /></span>
                            <img  src={item.image} alt={item.alt} />
                         </div>
                      )
@@ -209,7 +204,7 @@ function Room(){
                      }}
                      />
                   </div>
-                  <button onClick={()=>Nextpage("next")}><GrFormNext/></button>
+                  <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
                </div>
              </div>
          </div>
@@ -260,8 +255,8 @@ function Room(){
              </div>
               <div className='dc-t footer'>
                <div id="change-page">
-               <button onClick={()=>Nextpage("prev")}><span><GrFormNext/></span></button>
-                  <button onClick={()=>Nextpage("next")}><span><GrFormNext/></span></button>
+               <button onClick={()=>Nextpage("prev")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
+                  <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
                </div>
              </div>
          </div>
@@ -271,7 +266,8 @@ function Room(){
       content:<div className='zakas dc-t'>
          <div className="ogohlantirish">
             <div className="icon-box">
-               <span><GrStatusWarning/></span>
+               <span style={{width: "40px",height: "40px",borderRadius:'50%',border:"3px solid #ffffff",
+               backgroundColor:"#03C3EC",boxShadow:"3px 3px 35px #038baa",fontSize:"28px",fontWeight:"500",color:"#ffffff"}} className={"dc-t"}>i</span>
             </div>
             <div  className='ogohlantirish-title'>
                <div>
@@ -281,7 +277,7 @@ function Room(){
             </div>
          </div>
          <div>
-         <span className='user-icon'><GrUser/></span>
+        
          <input type="text" className='name-users' onChange={(e)=>{
             data.name=e.target.value 
             setData({...data}) 
@@ -308,7 +304,7 @@ function Room(){
          content:<div className='zakas dc-t'>
             <div className="qabul">
                <div className="icon-box-qabul">
-                  <span><AiFillCheckCircle/></span>
+                  <span><img src={Buyurtma.success} alt="success" /></span>
                </div>
                <div  className='ogohlantirish-title-qabul'>
                   <div>
@@ -345,7 +341,7 @@ function Room(){
          content:<div className='zakas warning dc-t'>
             <div className="ogohlantirish-warning">
                <div className="icon-box-warning">
-                  <span ><AiOutlineCloseCircle/></span>
+                  <span ></span>
                </div>
                <div  className='ogohlantirish-title-warning'>
                   <div>
@@ -362,7 +358,7 @@ function Room(){
          content:<div className='zakas dc-t'>
             <div className="ogohlantirish-error">
                <div className="icon-box-error">
-                  <span style={{color:'red'}} className='error'><AiOutlineCloseCircle/></span>
+                  <span style={{color:'red'}} className='error'></span>
                </div>
                <div  className='ogohlantirish-title-error'>
                   <div className='error' >
@@ -547,7 +543,9 @@ function Room(){
        })
           .then((response) => response.json())
           .then((data) => {
-             
+             if(data.status==="waiting"){
+               localStorage.removeItem('token')
+             }
              // Handle data
           })
           .catch((err) => {
