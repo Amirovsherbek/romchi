@@ -207,17 +207,17 @@ export const Catagorie=[
 export const Type=[
    {
     Typeid:1,
-    image:type1,
+    image:cat1,
     alt:"type1"
    },
    {
     Typeid:2,
-    image:type2,
+    image:cat5,
     alt:"type2"
    },
    {
     Typeid:3,
-    image:type3,
+    image:cat11,
     alt:"type3"
    }
 ]

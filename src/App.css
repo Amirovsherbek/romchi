@@ -232,7 +232,7 @@ border-radius:50%;
  font-family: 'Open Sans';
  font-style: normal;
  font-weight: 600;
- font-size: 24px;
+ font-size: 20px;
  color: #4154F1;
 }
 .size input{
@@ -241,7 +241,7 @@ border-radius:50%;
  background: #F4F4F4; 
  border: 1px solid #00A0FA;
  border-radius: 5px;
- font-size: 28px;
+ font-size: 20px;
  font-weight: 500;
  padding-left: 2px;
 }
@@ -333,7 +333,7 @@ font-size: 54px;
 }
 .ogohlantirish{
  width: 80%;
- height: 188px;
+ height:200px;
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
@@ -374,6 +374,14 @@ font-size: 54px;
  justify-content: center;
  align-items: center;
 }
+.uzb-box div img{
+  width: 30px;
+  height: 28px;
+  transform: scale(1.4);
+}
+.uzb-box div b{
+  margin-left:4px ;
+}
 .uzb-box input{
  width: 70%;
  height: 48px;
@@ -410,8 +418,8 @@ font-size: 54px;
  color: #00DF4C;
 }
 .ogohlantirish-title-qabul{
- width: 60%;
- height: 118px;
+ width: 100%;
+ height: 200px;
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
@@ -436,11 +444,18 @@ font-size: 54px;
  align-items: center;
 }
 .icon-box-warning span{
- font-size: 60px;
- color: yellow;
+  width: 50px;
+  height: 50px;
+  border-radius:50%;
+  border:3px solid #ffffff;
+  background-color:#f6fa09;
+  box-shadow:3px 3px 35px #f6fa09;
+  font-size:36px;
+  font-weight:500;
+ color: #FFFFFF;
 }
 .ogohlantirish-title-warning{
- width: 60%;
+ width: 100%;
  height: 118px;
  display: flex;
  flex-wrap: wrap;
@@ -455,10 +470,10 @@ font-size: 54px;
  line-height: 32px;
  text-align: center;
  letter-spacing: 0.15px;
- color: yellow;
+ color: #f6fa09;
 }
 .ogohlantirish-title{
- width: 60%;
+ width: 100%;
  height: 118px;
  display: flex;
  flex-wrap: wrap;
@@ -480,6 +495,7 @@ font-size: 54px;
  height: 57px;
  background: #00A0FA;
  border: none;
+ color:#FFFFFF;
  cursor: pointer;
 box-shadow: 0px 10px 30px rgba(0, 160, 250, 0.24);
 border-radius: 5px;
@@ -923,7 +939,6 @@ header{
  color: #FFFFFF;
 }
 .hudud option{
-  background-color: #d4d1d1;
  margin-top: 10px;
 }
 .width{
@@ -948,7 +963,7 @@ header{
   font-family: 'Open Sans';
    font-style: normal;
    font-weight: 600;
-font-size: 24px;
+font-size: 20px;
 color: #4154F1;
 }
 .width-div{
@@ -971,6 +986,7 @@ color: #4154F1;
 }
 .with-label label:nth-child(1){
  width: 50%;
+ font-size: 20px;
  color: #FFFFFF;
 }
 /* #heights{
@@ -1040,12 +1056,12 @@ color: #4154F1;
   font-family: 'Open Sans';
    font-style: normal;
    font-weight: 600;
-font-size: 22px;
+font-size: 20px;
 color: #4154F1
 }
 .with-label label:nth-child(2){
   width: 50%;
-  font-size: 22px;
+  font-size: 20px;
 }
 .width-div{
  height: 80%;
@@ -1093,7 +1109,7 @@ color: #4154F1
 
 .qabul{
  width: 80%;
- height: 188px;
+ height: 220px;
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
@@ -1108,7 +1124,8 @@ color: #4154F1
  flex-wrap: wrap;
  justify-content: center;
  align-items: center;
- background: #f2f548;
+ background-color: #ffffff;
+ box-shadow:0px 0px 60px #fbff21;
  border-radius: 5px;
 }
 .icon-box-error{
@@ -1119,6 +1136,17 @@ color: #4154F1
  justify-content: center;
  align-items: center;
 }
+.icon-box-error span{
+  width: 50px;
+  height: 50px;
+  border-radius:50%;
+  border:3px solid #ffffff;
+  background-color:rgb(255, 6, 6);
+  box-shadow:3px 3px 35px #f6fa09;
+  font-size:36px;
+  font-weight:500;
+ color: #FFFFFF;
+}
 .ogohlantirish-title-error{
  width: 60%;
  height: 118px;
@@ -1128,7 +1156,7 @@ color: #4154F1
  align-items: center;
 }
 .error{
- font-family: 'Public Sans';
+  font-family: 'Public Sans';
  font-style: normal;
  font-weight: 500;
  font-size: 24px;
@@ -1137,10 +1165,7 @@ color: #4154F1
  letter-spacing: 0.15px;
  color: red;
 }
-.icon-box-error span{
- color:red;
- font-size: 60px;
-}
+
 .active{
 
 }
@@ -1200,7 +1225,7 @@ color: #4154F1
    transform: scale(0.9);
   }
   .ogohlantirish-title{
-   width: 75%;
+   width: 100%;
   }
   .color{
    width: 100%;

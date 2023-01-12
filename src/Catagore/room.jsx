@@ -18,14 +18,14 @@ function Room(){
    const [loading,setLoading]=useState(false)
    const [countPage,SetCountPage]=useState(1)
    const shelfSize=[
-      {id:1,shelfSize:0},
-      {id:2,shelfSize:15},
-      {id:3,shelfSize:20},
-      {id:4,shelfSize:25},
-      {id:5,shelfSize:30},
-      {id:6,shelfSize:35},
-      {id:7,shelfSize:40},
-      {id:8,shelfSize:45},
+      {id:1,shelfSize:0,value:"X"},
+      {id:2,shelfSize:15,value:"15"},
+      {id:3,shelfSize:20,value:"20"},
+      {id:4,shelfSize:25,value:"25"},
+      {id:5,shelfSize:30,value:"30"},
+      {id:6,shelfSize:35,value:"35"},
+      {id:7,shelfSize:40,value:"40"},
+      {id:8,shelfSize:45,value:"45"},
    ]
    const [data,setData]=useState({ 
       category: 1, 
@@ -40,7 +40,8 @@ function Room(){
       beSaved: true,
       regionId:"",
       phoneNumber: " ",
-      name: "Alisher"
+      name: "",
+      count:1
       })
    const state=[
       {
@@ -60,7 +61,15 @@ function Room(){
                 </div>
                  <div className='size-image dc-t'>
                     <div className='arrow'><img style={{width:"8px",height:"225px"}} src={Buyurtma.arrow} alt="" /></div>
-                     <img src={Buyurtma.deraza} alt="deraza" />
+                      {
+                 Catagorie.map(item=>{
+                  if(data.category===item.id){
+                     return (
+                        <img key={item.id} src={item.image} alt={item.alt}/>
+                     )
+                  }
+                 })
+               }
                      <div className='arrow2'><img style={{width:"8px",height:"225px"}} src={Buyurtma.arrow} alt="" /></div>
                 </div>
                 <div className='width '>
@@ -95,7 +104,15 @@ function Room(){
          content:<div className="color dc-t">
             <div className="body">
             <div className='deraza-image dc-t'>
-               <img src={Buyurtma.deraza} alt="deraza" />
+               {
+                 Catagorie.map(item=>{
+                  if(data.category===item.id){
+                     return (
+                        <img key={item.id} src={item.image} alt={item.alt}/>
+                     )
+                  }
+                 })
+               }
               </div>
               <div className='color-title'>Romni rangini tanlang</div>
               <div className='rom-color dc-t'>
@@ -153,14 +170,13 @@ function Room(){
             <div className='deraza-image dc-t'>
                {
                  Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
+                   if(data.category===item.id){
+                        return (
+                           <img key={item.id} src={item.image} alt={item.alt}/>
+                        )
+                     }
+               })
                }
-              
             </div>
               <div className='color-titles'>Romni rangini tanlang</div>
               <div className="list-checked dc-t">
@@ -170,7 +186,9 @@ function Room(){
                           return (
                              <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "list-checkeds-active":"list-checkeds"}
                               onClick={()=>{autothion.typeID=item.Typeid
-                              setAutothion({...autothion})}} >
+                              setAutothion({...autothion}) 
+                              rom()
+                              }} >
                                 <img  src={item.image} alt={item.Typeid} />
                              </div>
                           )
@@ -198,7 +216,7 @@ function Room(){
                   <div className="count">
                      <label htmlFor="soni">Soni</label><br />
                      <input type={'number'} 
-                     placeholder={"0"}
+                     placeholder={"1"}
                      onChange={(e)=>{
                         data.count=parseInt(e.target.value)
                      }}
@@ -225,7 +243,7 @@ function Room(){
                        return (
                         <div key={item.id} 
                         className={data.shelfSize===item.shelfSize ? "qalinlig-div-activ":"qalinlig-div"}
-                        onClick={()=>ShelfSize(item.shelfSize)}>{item.shelfSize}</div>
+                        onClick={()=>ShelfSize(item.shelfSize)}>{item.value}</div>
                        )
                      })
                   }
@@ -266,8 +284,9 @@ function Room(){
       content:<div className='zakas dc-t'>
          <div className="ogohlantirish">
             <div className="icon-box">
-               <span style={{width: "40px",height: "40px",borderRadius:'50%',border:"3px solid #ffffff",
-               backgroundColor:"#03C3EC",boxShadow:"3px 3px 35px #038baa",fontSize:"28px",fontWeight:"500",color:"#ffffff"}} className={"dc-t"}>i</span>
+               <span style={{width: "50px",height: "50px",borderRadius:'50%',border:"3px solid #ffffff",
+               backgroundColor:"#03C3EC",boxShadow:"3px 3px 35px #038baa",fontSize:"36px",fontWeight:"500",color:"#ffffff"}} 
+               className={"dc-t"}>i</span>
             </div>
             <div  className='ogohlantirish-title'>
                <div>
@@ -308,7 +327,7 @@ function Room(){
                </div>
                <div  className='ogohlantirish-title-qabul'>
                   <div>
-                  Arizangiz qabul qilindi,
+                  Ma’lumotlar qabul qilindi,
                    tez orada siz bilan bog’lanamiz
                   </div>
                </div>
@@ -321,19 +340,18 @@ function Room(){
          id:6,
          content:<div className='zakas dc-t'>
             <div className="ogohlantirish">
-               
-               <div  className='ogohlantirish-title'>
+              <div  className='ogohlantirish-title'>
                   <div>
                   Raqamingizni tasdiqlash 
                    uchun SMS orqali kelgan kodni kiriting.
                   </div>
-                  <input type="text" className='name-users' onChange={(e)=>{
+                  <input style={{textAlign:"center",marginTop:"10px"}} type="text" className='name-users' onChange={(e)=>{
                    sms=parseInt(e.target.value) }}
                    placeholder={"* * * * *"}/>
                </div>
             </div>
            
-            <button className='nextPage' onClick={Submit}>Keyingisi</button>
+            <button className='nextPage'  onClick={Submit}>Keyingisi</button>
          </div>
       },
       {
@@ -341,7 +359,7 @@ function Room(){
          content:<div className='zakas warning dc-t'>
             <div className="ogohlantirish-warning">
                <div className="icon-box-warning">
-                  <span ></span>
+               <span className={"dc-t"}>i</span>
                </div>
                <div  className='ogohlantirish-title-warning'>
                   <div>
@@ -358,7 +376,7 @@ function Room(){
          content:<div className='zakas dc-t'>
             <div className="ogohlantirish-error">
                <div className="icon-box-error">
-                  <span style={{color:'red'}} className='error'></span>
+                  <span  className='dc-t'>i</span>
                </div>
                <div  className='ogohlantirish-title-error'>
                   <div className='error' >
@@ -379,15 +397,19 @@ function Room(){
         }
         else if(data.phoneNumber.length<9 || data.phoneNumber.length>12){
          setDisablet(true)
-        }
-        
+        }        
    }
    function Nextpage(id){
-      if(id==="next" ){
-         SetCountPage(page=>page+1)
-      } 
-      else if(id==="prev" ){
-         SetCountPage(page=>page-1)
+      if(data.category!==0){
+         if(id==="next" ){
+            SetCountPage(page=>page+1)
+         } 
+         else if(id==="prev" ){
+            SetCountPage(page=>page-1)
+         }
+      }
+      else{
+         rom()
       }
    }
     function Submit(){
@@ -553,6 +575,7 @@ function Room(){
           });
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
+   const rom = () => toast("Bu shakldagi romlar mos romlar topildi!Marxamat! tanlanshangiz mumkin");
    useEffect(()=>{
      setLoading(!loading); 
    },[])
@@ -560,6 +583,7 @@ function Room(){
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
     disable()
    },[data])
+  
    return (
         <div className='deraza dc-t'>
           <ToastContainer />
