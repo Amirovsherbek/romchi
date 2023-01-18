@@ -345,7 +345,7 @@ function Room(){
             <div className="ogohlantirish">
               <div  className='ogohlantirish-title'>
                   <div>
-                  Raqamingizni tasdiqlash 
+                   Raqamingizni tasdiqlash 
                    uchun SMS orqali kelgan kodni kiriting.
                   </div>
                   <input style={{textAlign:"center",marginTop:"10px"}} type="text" className='name-users' onChange={(e)=>{
@@ -416,45 +416,37 @@ function Room(){
       }
    }
     function Submit(){
-       if(sms===autothion.generateNumber){
-         // http://aiwork.uz
+            // http://aiwork.uz
          //http://185.217.131.88:8080
-        fetch('http://185.217.131.88:8080/ariza/register',{
-         method:"POST",
-         body:localStorage.getItem("buyurtma_page"),
-        headers:{  'Content-Type':'application/json; charset=UTF-8',
-        'Accept':'application/json',
-        'X-Requested-With':'XMLHttpRequest',
-        "Access-Control-Allow-Origin": "*",
-      //   "Access-Control-Allow-Methods": "GET,POST",
-      //   "Access-Control-Allow-Headers":" Content-Type",
-      //   "mode":"no-cors",
-            }
-        })
-        .then((response) => response.json())
-          .then((data) => {             
-            if(data){
-             
-               resData.message=data.massage;
-               resData.success=data.success;
-               setResData({...resData})
-               if(resData.success){
-                Nextpage("next")  
-                localStorage.clear()
+         fetch('http://185.217.131.88:8080/ariza/register',{
+            method:"POST",
+            body:localStorage.getItem("buyurtma_page"),
+           headers:{  'Content-Type':'application/json; charset=UTF-8',
+           'Accept':'application/json',
+           'X-Requested-With':'XMLHttpRequest',
+           "Access-Control-Allow-Origin": "*",
+         //   "Access-Control-Allow-Methods": "GET,POST",
+         //   "Access-Control-Allow-Headers":" Content-Type",
+         //   "mode":"no-cors",
                }
-            }
-          })
-          .catch((err) => {
-            console.log(err.message)
-            return(
-               <div style={{width:'100%',height:"100vh",display:"flex",flexWrap:"wrap", justifyContent:"center",alignItems:"center" }}>
-                       <h1 style={{width:"100%",textAlign:"center",height:'20%'}}>{err.message}</h1>
-                       <div style={{width:"100%",textAlign:"center",height:'80%'}} >qayta urinib ko'ring</div>     
-                   </div>
-            )
-          });
-       }
-       else{SetCountPage(8)}
+           })
+           .then((response) => response.json())
+             .then((data) => {             
+               if(data){
+                 localStorage.removeItem("buyurtma_page")
+               SetCountPage(7)
+               }
+             })
+             .catch((err) => {
+               console.log(err.message)
+               return(
+                  <div style={{width:'100%',height:"100vh",display:"flex",flexWrap:"wrap", justifyContent:"center",alignItems:"center" }}>
+                          <h1 style={{width:"100%",textAlign:"center",height:'20%'}}>{err.message}</h1>
+                          <div style={{width:"100%",textAlign:"center",height:'80%'}} >qayta urinib ko'ring</div>     
+                      </div>
+               )
+             });
+      
    }
    function NumberChecked(color,id){
      if(color==="rom"){
@@ -495,12 +487,8 @@ function Room(){
             setLoading(true)
             
              if(data.success){
-          
-               Requreds()
-               setLoading(false)
-               setTimeout(()=>{setLoading(true)
-               },1200)
-               SetCountPage(prev=>prev+1)
+               Submit()
+               console.log(data)
              }
              else if(!data.success){
                notify()
@@ -510,73 +498,11 @@ function Room(){
           })
           .catch((err) => {
             SetCountPage(9)
-            console.log(err)
+            console.log(err)  
           });
           
    }
-   function Requreds(){
-      fetch('http://185.217.131.88:8080/sms/4343245366788986756/1', {
-         method: 'GET',
-         headers:{ 
-            // 'Content-Type':'application/json; charset=UTF-8',
-            //          'Accept':'application/json',
-            //      'X-Requested-With':'XMLHttpRequest'
-            //        'Access-Control-Allow-Origin':'*',
-            //   'Access-Control-Allow-Credentials':'true',
-            //   'crossorigin':'true'
-            }
-       })
-          .then((response) => response.json())
-          .then((data) => {
-           
-            if(data.success){
-            // autothion.token=data.object;
-             autothion.generateNumber=data.number;
-            localStorage.setItem("token",data.object)
-            setAutothion({...autothion})
-              req()
-            }
-            else {
-              console.log("error")
-             
-            }
-             // Handle data
-          })
-          .catch((err) => {
-             console.log(err.message)  ;
-          });
-   }
-   function req(){
-      fetch('http://notify.eskiz.uz/api/message/sms/send', {
-         method: 'POST',
-         body: JSON.stringify({
-           // Add parameters here         
-          mobile_phone: "998"+data.phoneNumber,
-          message: "GulBazar.uz: Tasdiqlash kodi - "+autothion.generateNumber,
-          from: "4546",
-          callback_url: "http://0000.uz/test.php"
-         }),
-         headers:{ 'Content-Type':'application/json; charset=UTF-8',
-                 'Accept':'application/json',
-                 'X-Requested-With':'XMLHttpRequest',
-                 "Access-Control-Allow-Origin": "*",
-               //   "Access-Control-Allow-Methods": "POST",
-               //   "Access-Control-Allow-Headers":" Content-Type, Authorization",
-               //   "mode":"no-cors",
-                 'Authorization':'Bearer ' +localStorage.getItem("token")
-               }
-       })
-          .then((response) => response.json())
-          .then((data) => {
-             if(data.status==="waiting"){
-               localStorage.removeItem('token')
-             }
-             // Handle data
-          })
-          .catch((err) => {
-             console.log(err.message);
-          });
-   }
+
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    const rom = () => toast("Bu shakldagi romlar mos romlar topildi!Marxamat! tanlanshangiz mumkin");
    useEffect(()=>{
