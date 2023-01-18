@@ -180,7 +180,7 @@ function Room(){
                }
             </div>
               <div className='color-titles'>Romni rangini tanlang</div>
-              <div className="list-checked dc-t">
+             <div className="list-checked dc-t">
                <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
                     {
                        Type.map(item=>{
@@ -210,7 +210,7 @@ function Room(){
                   })
                }
                </div>
-              </div>
+             </div>
             </div>
               <div className='dc-t footer'>
                <div id="change-page">

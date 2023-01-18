@@ -602,7 +602,7 @@ align-items: center;
 }
 
 .list-checked{
- width:70%;
+ width:450px;
  height: 255px;
 }
 .next-icon{
@@ -665,7 +665,7 @@ align-items: center;
  box-shadow: 0px 0px 5px #03CB23;
 }
 .List-checkeds-active{
-  min-width: 100px;
+  width: 100px;
  height: 112px;
  margin: 1px 2px;
  position: relative;
@@ -1212,6 +1212,12 @@ color: #4154F1
   .list-checkeds-active{
     transform: scale(0.95);
   }
+  .List-checkeds{
+    transform: scale(0.95);
+   }
+   .List-checkeds-active{
+     transform: scale(0.95);
+   }
   .color-title{
    width: 80%;
    margin: 15px 0px;
