@@ -310,8 +310,9 @@ justify-content: center;
 align-items: center;
 font-size: 54px;
 }
-#change-page button span{
-  color: #FFFFFF;
+#change-page button img{
+  width: 50px;
+  height: 50px;
 }
 #change-page button:nth-child(1){
  transform: rotate(180deg);
@@ -1237,3 +1238,12 @@ color: #4154F1
   height: auto;
  }
 }
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) and (not (stroke-color:transparent)) {
+
+    .safari_only { 
+
+        color:#0000FF; 
+        background-color:#CCCCCC; 
+    }
+}}

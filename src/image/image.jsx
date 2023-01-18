@@ -37,6 +37,7 @@ import arrow from './Arrow.png'
 import catnext from './icons/catnext.png'
 import nextpage from './icons/nextpage.png'
 import success from './icons/success.png'
+import next from './arrow-right-short.svg'
 export const Buyurtma={
     // fortichka:fortichka,
     // eshik:eshik,
@@ -45,7 +46,7 @@ export const Buyurtma={
     logotip:logo,
     arrow:arrow,
     catnext:catnext,
-    nextpage:nextpage,
+    nextpage:next,
     success:success
 }
 export const ShelfSizes=shelfsize;

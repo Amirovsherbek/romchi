@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { GrFormNextLink } from "react-icons/gr";
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
@@ -202,7 +203,7 @@ function Room(){
                      return (
                         <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
                          onClick={()=>Catagoriya(item.id)} >
-                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="" /></span>
+                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="succes" /></span>
                            <img  src={item.image} alt={item.alt} />
                         </div>
                      )
@@ -222,7 +223,9 @@ function Room(){
                      }}
                      />
                   </div>
-                  <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
+                  <button onClick={()=>Nextpage("next")}>
+                      <img src={Buyurtma.nextpage} alt="next"  />
+                  </button>
                </div>
              </div>
          </div>
