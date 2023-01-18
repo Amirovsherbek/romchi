@@ -17,7 +17,7 @@ function Room(){
    })
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(false)
-   const [countPage,SetCountPage]=useState(2)
+   const [countPage,SetCountPage]=useState(1)
    const shelfSize=[
       {id:1,shelfSize:0,value:"X"},
       {id:2,shelfSize:15,value:"15"},
@@ -185,7 +185,7 @@ function Room(){
                     {
                        Type.map(item=>{
                           return (
-                             <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "list-checkeds-active":"list-checkeds"}
+                             <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "List-checkeds-active":"List-checkeds"}
                               onClick={()=>{autothion.typeID=item.Typeid
                               setAutothion({...autothion}) 
                               rom()
@@ -288,7 +288,7 @@ function Room(){
          <div className="ogohlantirish">
             <div className="icon-box">
                <span style={{width: "50px",height: "50px",borderRadius:'50%',border:"3px solid #ffffff",
-               backgroundColor:"#03C3EC",boxShadow:"3px 3px 35px #038baa",fontSize:"36px",fontWeight:"500",color:"#ffffff"}} 
+               backgroundColor:"#03C3EC",fontSize:"36px",fontWeight:"500",color:"#ffffff"}} 
                className={"dc-t"}>i</span>
             </div>
             <div  className='ogohlantirish-title'>
@@ -315,7 +315,7 @@ function Room(){
                <input type={'tel'} onChange={(e)=>{
                   data.phoneNumber=e.target.value
                   setData({...data}) 
-               }} placeholder={"9* *** ** **"}/>
+               }} placeholder={"(90) 123 45 67"}/>
             </div>
         
          <button className='nextPage' disabled={disablet} onClick={Requred}>Keyingisi</button>
