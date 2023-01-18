@@ -17,7 +17,7 @@ function Room(){
    })
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(false)
-   const [countPage,SetCountPage]=useState(1)
+   const [countPage,SetCountPage]=useState(2)
    const shelfSize=[
       {id:1,shelfSize:0,value:"X"},
       {id:2,shelfSize:15,value:"15"},
