@@ -2,11 +2,13 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { GrFormNextLink } from "react-icons/gr";
+import {collection,getDocs} from 'firebase/firestore'
+import { analytics } from '../storage/storage';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
-   let sms=0;
+   const [stateImage,setStateImage]=useState([])
+   const imagesCollectionRef=collection(analytics,"cat1");
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
@@ -179,7 +181,7 @@ function Room(){
                })
                }
             </div>
-              <div className='color-titles'>Romni rangini tanlang</div>
+              <div className='color-titles'>Romni shaklini tanlang</div>
              <div className="list-checked dc-t">
                <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
                     {
@@ -340,7 +342,7 @@ function Room(){
          </div>
       },
       {
-         id:6,
+         // id:6,
          content:<div className='zakas dc-t'>
             <div className="ogohlantirish">
               <div  className='ogohlantirish-title'>
@@ -348,9 +350,11 @@ function Room(){
                    Raqamingizni tasdiqlash 
                    uchun SMS orqali kelgan kodni kiriting.
                   </div>
-                  <input style={{textAlign:"center",marginTop:"10px"}} type="text" className='name-users' onChange={(e)=>{
-                   sms=parseInt(e.target.value) }}
-                   placeholder={"* * * * *"}/>
+                  <input style={{textAlign:"center",marginTop:"10px"}} type="text" className='name-users' 
+                  // onChange={(e)=>{
+                  //  sms=parseInt(e.target.value) }}
+                  //  placeholder={"* * * * *"}
+                  />
                </div>
             </div>
            
@@ -415,6 +419,15 @@ function Room(){
          rom()
       }
    }
+   async function GetFireStore(){
+      setLoading(false)
+      const data=await getDocs(imagesCollectionRef)
+      if(data){
+         setStateImage(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
+         setLoading(true)
+
+      }
+   }
     function Submit(){
             // http://aiwork.uz
          //http://185.217.131.88:8080
@@ -433,6 +446,7 @@ function Room(){
            .then((response) => response.json())
              .then((data) => {             
                if(data){
+               setLoading(true)
                  localStorage.removeItem("buyurtma_page")
                SetCountPage(7)
                }
@@ -467,6 +481,7 @@ function Room(){
       setData({...data})
    }
    function Requred(){
+      setLoading(false)
      fetch('http://185.217.131.88:8080/ariza/checkPhone', {
          method: 'POST',
          body: JSON.stringify({
@@ -483,12 +498,9 @@ function Room(){
             }
        })
           .then((response) => response.json())
-          .then((data) => {
-            setLoading(true)
-            
+          .then((data) => {            
              if(data.success){
                Submit()
-               console.log(data)
              }
              else if(!data.success){
                notify()
@@ -502,7 +514,6 @@ function Room(){
           });
           
    }
-
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    const rom = () => toast("Bu shakldagi romlar mos romlar topildi!Marxamat! tanlanshangiz mumkin");
    useEffect(()=>{
@@ -518,6 +529,7 @@ function Room(){
           <ToastContainer />
           {
             loading ? <div className="deraza-child">
+              
             <header>
              <div  className={'logo'}>
                 <img onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
