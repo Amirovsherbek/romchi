@@ -13,6 +13,7 @@ function Room(){
       typeID:1,
       generateNumber:0,
    })
+   
    const [resData,setResData]=useState({
       message:"",
       success:false
