@@ -2,13 +2,10 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {collection,getDocs} from 'firebase/firestore'
-import { analytics } from '../storage/storage';
+import Catagorie1 from '../roms/catagorie1/catagorie';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
-   const [stateImage,setStateImage]=useState([])
-   const imagesCollectionRef=collection(analytics,"cat1");
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
@@ -33,7 +30,7 @@ function Room(){
    ]
    const [data,setData]=useState({ 
       category: 1, 
-      colorNumber: 1, 
+      colorNumber: 2, 
       companyId: 0, 
       createAt: 325436547, 
       glassNumber: 1,
@@ -112,7 +109,7 @@ function Room(){
                  Catagorie.map(item=>{
                   if(data.category===item.id){
                      return (
-                        <img key={item.id} src={item.image} alt={item.alt}/>
+                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
                      )
                   }
                  })
@@ -172,14 +169,14 @@ function Room(){
          content:<div className='list-rom dc-t'>
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
-               {
+            {
                  Catagorie.map(item=>{
-                   if(data.category===item.id){
-                        return (
-                           <img key={item.id} src={item.image} alt={item.alt}/>
-                        )
-                     }
-               })
+                  if(data.category===item.id){
+                     return (
+                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
+                     )
+                  }
+                 })
                }
             </div>
               <div className='color-titles'>Romni shaklini tanlang</div>
@@ -191,7 +188,6 @@ function Room(){
                              <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "List-checkeds-active":"List-checkeds"}
                               onClick={()=>{autothion.typeID=item.Typeid
                               setAutothion({...autothion}) 
-                              rom()
                               }} >
                                 <img  src={item.image} alt={item.Typeid} />
                              </div>
@@ -416,18 +412,6 @@ function Room(){
             SetCountPage(page=>page-1)
          }
       }
-      else{
-         rom()
-      }
-   }
-   async function GetFireStore(){
-      setLoading(false)
-      const data=await getDocs(imagesCollectionRef)
-      if(data){
-         setStateImage(data.docs.map((doc)=>({...doc.data(),id:doc.id})))
-         setLoading(true)
-
-      }
    }
     function Submit(){
             // http://aiwork.uz
@@ -516,7 +500,6 @@ function Room(){
           
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
-   const rom = () => toast("Bu shakldagi romlar mos romlar topildi!Marxamat! tanlanshangiz mumkin");
    useEffect(()=>{
      setLoading(!loading); 
    },[])

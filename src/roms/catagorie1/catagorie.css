@@ -59,7 +59,9 @@ input::-webkit-inner-spin-button {
 .win-box-dub {
   background-image: url("../images/dub.png");
 }
-
+.win-box-iron {
+  background-image: url("../images/iron.png");
+}
 .win-box-mokko {
   background-image: url("../images/Mokko.png");
   background-position: -2px -1px;

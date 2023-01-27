@@ -38,6 +38,7 @@ import catnext from './icons/catnext.png'
 import nextpage from './icons/nextpage.png'
 import success from './icons/success.png'
 import next from './arrow-right-short.svg'
+import Catagorie1 from "../roms/catagorie1/catagorie"
 export const Buyurtma={
     // fortichka:fortichka,
     // eshik:eshik,
@@ -55,21 +56,25 @@ export const Rom=[
     {
         id:1,
         title:"Oq",
+        text:"win-box win-box-white",
         image:One
     },
     {
         id:2,
         title:"Zalatoy Dub",
+        text:"win-box win-box-dub",
         image:Two
     },
     {
         id:3,
         title:"Dub Mokko",
+        text:"win-box win-box-mokko",
         image:Three
     },
     {
         id:4,
         title:"Mokry asfaltq",
+        text:"win-box win-box-iron",
         image:Four
     },
 ]
@@ -222,4 +227,5 @@ export const Type=[
     alt:"type3"
    }
 ]
+
 
