@@ -455,8 +455,6 @@ function Room(){
    function Catagoriya(id){
       data.category=id
       setData({...data})
-      console.log(data)
-      console.log(data +" this is data")
    }
    function ShelfSize(id){
       data.shelfSize=id

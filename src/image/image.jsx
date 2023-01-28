@@ -78,6 +78,54 @@ export const Rom=[
         image:Four
     },
 ]
+export const Rom2=[
+    {
+        id:1,
+        title:"Oq",
+        text:"win-box2 win-box-white",
+        image:One
+    },
+    {
+        id:2,
+        title:"Zalatoy Dub",
+        text:"win-box2 win-box-dub2",
+        image:Two
+    },
+    {
+        id:3,
+        title:"Dub Mokko",
+        text:"win-box2 win-box-mokko2",
+        image:Three
+    },
+    {
+        id:4,
+        title:"Mokry asfaltq",
+        text:"win-box2 win-box-iron2",
+        image:Four
+    },
+]
+export const Rom3=[
+    {
+        id:1,
+        title:"Oq",
+        text:"win-box3 win-box-white"
+    },
+    {
+        id:2,
+        title:"Zalatoy Dub",
+        text:"win-box3 win-box-dub3"
+    },
+    {
+        id:3,
+        title:"Dub Mokko",
+        text:"win-box3 win-box-mokko3"
+    },
+    {
+        id:4,
+        title:"Mokry asfaltq",
+        text:"win-box3 win-box-iron3"
+    },
+]
 export const Oyna=[
     {
         id:1,
