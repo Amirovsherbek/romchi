@@ -1,4 +1,4 @@
-import { Rom ,Rom2} from '../../image/image'
+import { Rom ,Rom2,Rom3} from '../../image/image'
 import "./Cat2.css"
 export  default function Catagorie1(props){ 
     let data=props.data
@@ -221,7 +221,7 @@ export  default function Catagorie1(props){
            Rom2.map(item=>{
             if(item.id===data.colorNumber){
                 return (
-                    <div className={item.text}>
+                    <div key={item.id} className={item.text}>
                     <div className="list-box23">
                         <div className="list23">
                             <div className="list-item-top23">
@@ -268,7 +268,7 @@ export  default function Catagorie1(props){
            Rom2.map(item=>{
             if(item.id===data.colorNumber){
                 return (
-                    <div className={item.text}>
+                    <div key={item.id} className={item.text}>
                     <div className="list-box23">
                         <div className="list23">
                             <div className="list-item-top23">
@@ -315,7 +315,7 @@ export  default function Catagorie1(props){
            Rom2.map(item=>{
             if(item.id===data.colorNumber){
                 return (
-                    <div className={item.text}>
+                    <div  key={item.id} className={item.text}>
                     <div className="list-box23">
                         <div className="list23">
                             <div className="list-item-top23">
@@ -362,7 +362,7 @@ export  default function Catagorie1(props){
            Rom2.map(item=>{
             if(item.id===data.colorNumber){
                 return (
-                    <div className={item.text}>
+                    <div key={item.id} className={item.text}>
                     <div className="list-box23">
                         <div className="list23">
                             <div className="list-item-top23">
@@ -405,17 +405,21 @@ export  default function Catagorie1(props){
       {
         id:11,
         content:<div className="window2">
-        <div className="win-box3">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                        <div key={item.id} className={item.text}>
             <div className="list__box list-item">
                 <div className="list-item__left">
                     <div></div>
                 </div>
-                <div className="list-item__middle">
+                <div className="list-item__middle31">
                     <div className="list-item__center">
                         <div></div>
                         <span></span>
                     </div>
-                    <div className="list-item__detail">
+                    <div className="list-item__detail31">
                     </div>
                 </div>
                 <div className="list-item__right">
@@ -423,8 +427,249 @@ export  default function Catagorie1(props){
                 </div>
             </div>
         </div>
+                    )
+                }
+            })
+        }
     </div>
-      }
+      },
+      {
+        id:12,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                    <div key={item.id} className={item.text}>
+                       <div className="list__box list-item">
+                          <div className="list-item__left">
+                            <div></div>
+                            </div>
+                            <div className="list-item__middle3">
+                                <div className="list-item__center">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail3">
+                                </div>
+                            </div>
+                            <div className="list-item__right">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:14,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                        <div key={item.id} className={item.text}>
+            <div className="list__box list-item">
+                <div className="list-item__left">
+                    <div></div>
+                </div>
+                <div className="list-item__middle31">
+                    <div className="list-item__center">
+                        <div></div>
+                        <span></span>
+                    </div>
+                    <div className="list-item__detail31">
+                    </div>
+                </div>
+                <div className="list-item__right">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:13,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                    <div key={item.id} className={item.text}>
+                       <div className="list__box list-item">
+                          <div className="list-item__left">
+                            <div></div>
+                            </div>
+                            <div className="list-item__middle3">
+                                <div className="list-item__center">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail3">
+                                </div>
+                            </div>
+                            <div className="list-item__right">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:15,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                     <div key={item.id} className={item.text}>
+                        <div className="list__box list-item">
+                            <div className="list-item__left32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                            <div className="list-item__middle32">
+                                <div></div>
+                            </div>
+                            <div className="list-item__right32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:16,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                     <div key={item.id} className={item.text}>
+                        <div className="list__box list-item">
+                            <div className="list-item__left32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                            <div className="list-item__middle32">
+                                <div></div>
+                            </div>
+                            <div className="list-item__right32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:17,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                     <div key={item.id} className={item.text}>
+                        <div className="list__box list-item">
+                            <div className="list-item__left32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                            <div className="list-item__middle32">
+                                <div></div>
+                            </div>
+                            <div className="list-item__right32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
+      {
+        id:18,
+        content:<div className="window2">
+        {
+            Rom3.map(item=>{
+                if(item.id===data.colorNumber){
+                    return(
+                     <div key={item.id} className={item.text}>
+                        <div className="list__box list-item">
+                            <div className="list-item__left32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                            <div className="list-item__middle32">
+                                <div></div>
+                            </div>
+                            <div className="list-item__right32">
+                                <div className="list-item__center32">
+                                    <div></div>
+                                    <span></span>
+                                </div>
+                                <div className="list-item__detail32">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                }
+            })
+        }
+    </div>
+      },
     ]
     return (
     <section>
