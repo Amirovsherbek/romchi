@@ -30,7 +30,7 @@ function Room(){
    ]
    const [data,setData]=useState({ 
       category: 1, 
-      colorNumber: 2, 
+      colorNumber: 1, 
       companyId: 0, 
       createAt: 325436547, 
       glassNumber: 1,
@@ -106,13 +106,8 @@ function Room(){
             <div className="body">
             <div className='deraza-image dc-t'>
                {
-                 Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
+                  
+                  <Catagorie1 data={data}/>
                }
               </div>
               <div className='color-title'>Romni rangini tanlang</div>
@@ -460,6 +455,8 @@ function Room(){
    function Catagoriya(id){
       data.category=id
       setData({...data})
+      console.log(data)
+      console.log(data +" this is data")
    }
    function ShelfSize(id){
       data.shelfSize=id

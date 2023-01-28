@@ -56,25 +56,25 @@ export const Rom=[
     {
         id:1,
         title:"Oq",
-        text:"win-box win-box-white",
+        text:"win-box1 win-box-white",
         image:One
     },
     {
         id:2,
         title:"Zalatoy Dub",
-        text:"win-box win-box-dub",
+        text:"win-box1 win-box-dub1",
         image:Two
     },
     {
         id:3,
         title:"Dub Mokko",
-        text:"win-box win-box-mokko",
+        text:"win-box1 win-box-mokko1",
         image:Three
     },
     {
         id:4,
         title:"Mokry asfaltq",
-        text:"win-box win-box-iron",
+        text:"win-box1 win-box-iron1",
         image:Four
     },
 ]

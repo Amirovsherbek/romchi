@@ -23,9 +23,17 @@
   margin: 0 auto;
   background-size: 300px;
 }
-
+.win-box-white{
+  background: #fff;
+}
 .win-box-dub1 {
     background-image: url("../images/BackgroundCat1.png");
+  }
+  .win-box-mokko1{
+    background-image: url("../images/Mokko.png"); 
+  }
+  .win-box-iron1{
+    background-image: url("../images/iron.png"); 
   }
 .list-box1 {
     display: flex;

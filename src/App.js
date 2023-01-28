@@ -10,7 +10,6 @@ function App() {
        <Routes>
           {/* <Route path='/' element={<Catagore/>}/> */}
           <Route path='/' element={<Room/>}/>
-          <Route path='/test' element={<TEST/>}/>
           <Route path='*' element={<NotFound/>}/>
        </Routes>
     </div>
