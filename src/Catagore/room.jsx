@@ -2,6 +2,8 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { analytics } from '../storage/storage';
+import {collection, getDocs, getFirestore} from 'firebase/firestore'
 import Catagorie1 from '../roms/catagorie1/catagorie';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
@@ -10,11 +12,8 @@ function Room(){
       typeID:1,
       generateNumber:0,
    })
-   
-   const [resData,setResData]=useState({
-      message:"",
-      success:false
-   })
+   const [image,setImage]=useState([])
+   const userRefCollection=collection(analytics,"cat1")
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(false)
    const [countPage,SetCountPage]=useState(1)
@@ -165,7 +164,7 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
             {
-                 Catagorie.map(item=>{
+                 image.map(item=>{
                   if(data.category===item.id){
                      return (
                         <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
@@ -192,7 +191,7 @@ function Room(){
                </div>
                <div className="list-checked-cat ">
                {
-                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
+                 image.filter(item=>item.Typeid===autothion.typeID )
                 .map(item=>{
                      return (
                         <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
@@ -388,7 +387,6 @@ function Room(){
             <button className='nextPage' onClick={()=>{SetCountPage(5)}}>Qayta urinish</button>
          </div>
       },
-
    ]
    const disable=()=>{
         if(data.phoneNumber.length===9 ){
@@ -496,19 +494,27 @@ function Room(){
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    useEffect(()=>{
-     setLoading(!loading); 
+
+      const GetFireStore=async()=>{
+         setLoading(false)
+         const data=await getDocs(userRefCollection)
+         if(data){
+            setLoading(true)
+         setImage(data.docs.map((item)=>({...item.data(), id: item.id})))
+         } 
+      }
+      GetFireStore()
    },[])
   useEffect(()=>{
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
     disable()
    },[data])
-  
+   
    return (
         <div className='deraza dc-t'>
           <ToastContainer />
           {
             loading ? <div className="deraza-child">
-              
             <header>
              <div  className={'logo'}>
                 <img onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
