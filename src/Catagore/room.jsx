@@ -15,7 +15,7 @@ function Room(){
    const [image,setImage]=useState([])
    const userRefCollection=collection(analytics,"cat1")
    const [disablet,setDisablet]=useState(true)
-   const [loading,setLoading]=useState(false)
+   const [loading,setLoading]=useState(true)
    const [countPage,SetCountPage]=useState(1)
    const shelfSize=[
       {id:1,shelfSize:0,value:"X"},
@@ -164,7 +164,7 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
             {
-                 image.map(item=>{
+                 Catagorie.map(item=>{
                   if(data.category===item.id){
                      return (
                         <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
@@ -191,7 +191,7 @@ function Room(){
                </div>
                <div className="list-checked-cat ">
                {
-                 image.filter(item=>item.Typeid===autothion.typeID )
+                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
                 .map(item=>{
                      return (
                         <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
@@ -494,16 +494,6 @@ function Room(){
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    useEffect(()=>{
-
-      const GetFireStore=async()=>{
-         setLoading(false)
-         const data=await getDocs(userRefCollection)
-         if(data){
-            setLoading(true)
-         setImage(data.docs.map((item)=>({...item.data(), id: item.id})))
-         } 
-      }
-      GetFireStore()
    },[])
   useEffect(()=>{
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
