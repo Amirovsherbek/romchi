@@ -36,7 +36,7 @@ import login from './icons/login.png'
 import nextpage from './icons/nextpage.png'
 import success from './icons/success.png'
 import next from './arrow-right-short.svg'
-import Catagorie1 from "../roms/catagorie1/catagorie"
+import CATTEST from './TESTS.png'
 export const Buyurtma={
     // fortichka:fortichka,
     // eshik:eshik,
@@ -178,7 +178,7 @@ export const Catagorie=[
     {
         Typeid:2,
         id:5,
-        image:cat5,
+        image:CATTEST,
         alt:'catagoriya1'
     },
     {
