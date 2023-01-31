@@ -125,6 +125,7 @@ function Room(){
                 </div>
                  <div className='size-image dc-t'>
                     <div className='arrow'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
+                      <div className="size-box-image">
                       {
                  Catagorie.map(item=>{
                   if(data.category===item.id){
@@ -134,7 +135,8 @@ function Room(){
                   }
                  })
                }
-                     <div className='arrow2'><img style={{width:"8px",height:"225px"}} src={Buyurtma.arrow} alt="" /></div>
+                      </div>
+                     <div className='arrow2'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
                 </div>
                 <div className='width '>
                       <div className='with-label'>
@@ -168,10 +170,17 @@ function Room(){
          content:<div className="color dc-t">
             <div className="body">
             <div className='deraza-image dc-t'>
+            <div className='deraza-image dc-t'>
                {
-                  
-                  <Catagorie1 data={data}/>
-               }
+                 Catagorie.map(item=>{
+                  if(data.category===item.id){
+                     return (
+                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
+                     )
+                  }
+                 })
+                }
+            </div>
               </div>
               <div className='color-title'>Romni rangini tanlang</div>
               <div className='rom-color dc-t'>
