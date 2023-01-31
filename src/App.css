@@ -1,5 +1,5 @@
 .App {
-  width: 571px;
+  width: 100%;
   height: auto;
   box-shadow: 0px 0px 5px #cccccc;
 }
@@ -12,6 +12,50 @@
  flex-wrap: wrap;
  justify-content: center;
  align-items: center;
+}
+.step-box{
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
+.step{
+  width: 80%;
+  height: 14px;
+  border-radius: 7px;
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+  background-color: #D9D9D9;
+}
+.steps{
+  width: 20%;
+  height: 14px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+}
+.steps span:nth-child(1){
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 600;
+   font-size: 13px;
+   line-height: 18px;
+   color: #FFFFFF;
+}
+.step-span{
+  background-color: #D9D9D9;
+}
+.success-step{
+   background-color: #00DF4C;
+}
+.Success-step{
+   background-color: #00DF4C;
+   box-shadow: 0px 0px 15px #00DF4C;
 }
 .toast-warning{
  width: 30px;
@@ -129,7 +173,7 @@ border-radius:50%;
  }
 }
 .deraza{
- width: 100%;
+ width: 571px;
  height: auto;
 }
 .deraza-child{
@@ -883,12 +927,12 @@ font-weight: 700;
  background-color: #1EE23D   ;
 }
 .header{
- width: 80%;
+ width: 100%;
  height: 36px;
  text-align: left;
 }
 header{
- width: 80%;
+ width: 90%;
  height: 42px;
  padding-left: 20px;
  margin: 20px 0px;
@@ -914,19 +958,28 @@ header{
  width: 100%;
  height: 100%;
  display: flex;
- justify-content: flex-start;
+ justify-content: space-between;
  align-items: center;
  text-decoration: none;
  text-align: left;
 }
-.nav_link{
+.Nav_link{
+  width: 30px;
+  height: 00px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+}
+.Nav_link img{
+  width: 30px;
+  height: 30px;
 }
 .nav_link:hover{
  color: #000000;
  text-decoration: none;
 }
-.logo img{
+.logo-img{
  width: 171px;
  height: 88px;
  cursor: pointer;
@@ -1251,8 +1304,14 @@ color: #4154F1
    margin-left: 10px;
   }
 }
-@media (min-width:471.09px) and (max-width:540px){
- .list-checked{
+@media (min-width:471.09px) and (max-width:591px){
+ .App{
+  width: 100%;
+ }
+  .deraza{
+  width:100%;
+ }
+  .list-checked{
    width: 90%;
  }
  .list-checked div{
@@ -1264,19 +1323,7 @@ color: #4154F1
   .color{
    width: 100%;
   }
+  header{
+    width: 90%;
+  }
 }
-@media (min-width:471.09px) and (max-width:671px){
- .App{
-  width: 100%;
-  height: auto;
- }
-}
-@media not all and (min-resolution:.001dpcm)
-{ @supports (-webkit-appearance:none) and (not (stroke-color:transparent)) {
-
-    .safari_only { 
-
-        color:#0000FF; 
-        background-color:#CCCCCC; 
-    }
-}}

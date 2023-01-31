@@ -29,12 +29,10 @@ import cat15 from './cat15.svg'
 import cat16 from './cat16.svg'
 import cat17 from './cat17.svg'
 import cat18 from './cat18.svg'
-import type1 from './type1.svg'
-import type2 from './type2.svg'
-import type3 from './type3.svg'
 import logo from './logo.svg'
 import arrow from './Arrow.png'
 import catnext from './icons/catnext.png'
+import login from './icons/login.png'
 import nextpage from './icons/nextpage.png'
 import success from './icons/success.png'
 import next from './arrow-right-short.svg'
@@ -48,7 +46,11 @@ export const Buyurtma={
     arrow:arrow,
     catnext:catnext,
     nextpage:next,
-    success:success
+    success:success,
+    login:login
+}
+export const Admin_panel={
+    logo:logo,
 }
 export const ShelfSizes=shelfsize;
 export const Ozbekiston=Uzbekistan;

@@ -1,0 +1,76 @@
+.container-admin{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.admin-header{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-header div:nth-child(1){
+    justify-content: flex-end;
+}
+.admin-header div:nth-child(2){
+    justify-content: flex-start;
+}
+.admin-header-box{
+    width: 50%;
+    height: 100%;
+    display:flex ;
+    align-items: center;
+}
+.List-box{
+   width: 100%;
+   height:auto;
+   padding-bottom: 30px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+.list-table{
+    width: 100%;
+    height: auto;
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+.list-table table{
+    width: 80%;
+    height:auto;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+.list-table thead {
+    width: 90%;
+}
+.list-table th{
+    background-color: rgba(0, 119, 255, 0.63);
+}
+.list-table tr{
+    width: 100%;
+    height: 46px;
+}
+.list-table td, th{
+    margin: 0px 0px;
+    border: none;
+    line-height: 0%;
+    height: 46px;
+    outline: none;
+}
+.list-table img{
+    transform: scale(0.5);
+}
+.list-table tbody > tr:nth-child(odd){
+    background-color: rgba(166, 202, 243, 0.963);
+}

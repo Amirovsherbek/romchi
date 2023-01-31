@@ -1,19 +1,18 @@
+import {NavLink}  from 'react-router-dom'
 import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { analytics } from '../storage/storage';
-import {collection, getDocs, getFirestore} from 'firebase/firestore'
 import Catagorie1 from '../roms/catagorie1/catagorie';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
+import { isEditable } from '@testing-library/user-event/dist/utils';
 function Room(){
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
    })
    const [image,setImage]=useState([])
-   const userRefCollection=collection(analytics,"cat1")
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(true)
    const [countPage,SetCountPage]=useState(1)
@@ -42,8 +41,73 @@ function Room(){
       phoneNumber: " ",
       name: "",
       count:1
-      })
+   })
    const state=[
+      {
+         id:1,
+         content:<div className='list-rom dc-t'>
+            <div className="body dc-t">
+            <div className='deraza-image dc-t'>
+            {
+                 Catagorie.map(item=>{
+                  if(data.category===item.id){
+                     return (
+                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
+                     )
+                  }
+                 })
+               }
+            </div>
+              <div className='color-titles'>Romni shaklini tanlang</div>
+             <div className="list-checked dc-t">
+               <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
+                    {
+                       Type.map(item=>{
+                          return (
+                             <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "List-checkeds-active":"List-checkeds"}
+                              onClick={()=>{autothion.typeID=item.Typeid
+                              setAutothion({...autothion}) 
+                              }} >
+                                <img  src={item.image} alt={item.Typeid} />
+                             </div>
+                          )
+                       })
+                    }
+               </div>
+               <div className="list-checked-cat ">
+               {
+                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
+                .map(item=>{
+                     return (
+                        <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
+                         onClick={()=>Catagoriya(item.id)} >
+                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="succes" /></span>
+                           <img  src={item.image} alt={item.alt} />
+                        </div>
+                     )
+                  })
+               }
+               </div>
+             </div>
+            </div>
+              <div className='dc-t footer'>
+               <div id="change-page">
+                  <div className="count">
+                     <label htmlFor="soni">Soni</label><br />
+                     <input type={'number'} 
+                     placeholder={"1"}
+                     onChange={(e)=>{
+                        data.count=parseInt(e.target.value)
+                     }}
+                     />
+                  </div>
+                  <button onClick={()=>Nextpage("next")}>
+                      <img src={Buyurtma.nextpage} alt="next"  />
+                  </button>
+               </div>
+             </div>
+         </div>
+      },
       {
          id:2,
          content:         
@@ -154,71 +218,6 @@ function Room(){
                <div  id="change-page">
                   <button onClick={()=>Nextpage("prev")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
                   <button onClick={()=>Nextpage("next")}><img src={Buyurtma.nextpage} alt="nextpage"/></button>
-               </div>
-             </div>
-         </div>
-      },
-      {
-         id:1,
-         content:<div className='list-rom dc-t'>
-            <div className="body dc-t">
-            <div className='deraza-image dc-t'>
-            {
-                 Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
-               }
-            </div>
-              <div className='color-titles'>Romni shaklini tanlang</div>
-             <div className="list-checked dc-t">
-               <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
-                    {
-                       Type.map(item=>{
-                          return (
-                             <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "List-checkeds-active":"List-checkeds"}
-                              onClick={()=>{autothion.typeID=item.Typeid
-                              setAutothion({...autothion}) 
-                              }} >
-                                <img  src={item.image} alt={item.Typeid} />
-                             </div>
-                          )
-                       })
-                    }
-               </div>
-               <div className="list-checked-cat ">
-               {
-                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
-                .map(item=>{
-                     return (
-                        <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
-                         onClick={()=>Catagoriya(item.id)} >
-                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="succes" /></span>
-                           <img  src={item.image} alt={item.alt} />
-                        </div>
-                     )
-                  })
-               }
-               </div>
-             </div>
-            </div>
-              <div className='dc-t footer'>
-               <div id="change-page">
-                  <div className="count">
-                     <label htmlFor="soni">Soni</label><br />
-                     <input type={'number'} 
-                     placeholder={"1"}
-                     onChange={(e)=>{
-                        data.count=parseInt(e.target.value)
-                     }}
-                     />
-                  </div>
-                  <button onClick={()=>Nextpage("next")}>
-                      <img src={Buyurtma.nextpage} alt="next"  />
-                  </button>
                </div>
              </div>
          </div>
@@ -494,22 +493,50 @@ function Room(){
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    useEffect(()=>{
+                  // get images function 
+
+      // const GetImages= async ()=>{
+      //    fetch("url",{
+      //       method:"GET",    
+      //    }
+      //    .then((res=>res.json()))
+      //    .then(res=>console.log(res))
+      //    .catch(()=>{
+      //       SetCountPage(9)
+      //    })
+      //    )
+      // }
    },[])
   useEffect(()=>{
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
     disable()
    },[data])
-   
    return (
         <div className='deraza dc-t'>
           <ToastContainer />
           {
-            loading ? <div className="deraza-child">
+            loading ? <div className="deraza-child dc-t">
             <header>
              <div  className={'logo'}>
-                <img onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
+                <img className='logo-img' onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
+                <NavLink to={"/admin"} className={"Nav_link"}>
+                <img  src={Buyurtma.login} alt="login" />
+                </NavLink>
              </div>
             </header>
+            <div className="step-box">
+               <div className='step'>{
+                state.map((item,index)=>{
+                 if(item.id<6){
+                    return(
+                    <span className={item.id<countPage ? "  steps success-step":"steps step-span"} key={index}>
+                        <span className={item.id<=countPage ? "Success-step":"step-span"}>{item.id}</span>                 
+                    </span>
+                    )
+                 }
+                 })  
+               }</div>
+            </div>
          {
             state.map(item=>{
                if(countPage===item.id){
