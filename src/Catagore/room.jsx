@@ -124,7 +124,7 @@ function Room(){
                   />
                 </div>
                  <div className='size-image dc-t'>
-                    <div className='arrow'><img style={{width:"8px",height:"225px"}} src={Buyurtma.arrow} alt="" /></div>
+                    <div className='arrow'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
                       {
                  Catagorie.map(item=>{
                   if(data.category===item.id){
