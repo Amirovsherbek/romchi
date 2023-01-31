@@ -16,122 +16,101 @@ function Admin(){
             </div>
             <div className="List-box">
                 <div className="list-table">
-                    <table className='table'>
-                        <thead>
-                            <tr>
-                                <th>id</th>
-                                <th>Telefon raqam</th>
-                                <th>Ism</th>
-                                <th>Viloyat</th>
-                                <th>Balandligi</th>
-                                <th>Kengligi</th>
-                                <th>Rangi</th>
-                                <th>sana</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>+998907111205</td>
-                                <td>Alisher</td>
-                                <td>Toshkent</td>
-                                <td>150</td>
-                                <td>140</td>
-                                <td><img src={Rom[2].image} alt="rom-image" /></td>
-                                <td>11.12.2022</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>+998907111205</td>
-                                <td>Bobiur</td>
-                                <td>Qashqadaryo</td>
-                                <td>250</td>
-                                <td>240</td>
-                                <td><img src={Rom[2].image} alt="rom-image" /></td>
-                                <td>11.12.2022</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>+9989901154205</td>
-                                <td>Alisher</td>
-                                <td>Toshkent</td>
-                                <td>180</td>
-                                <td>160</td>
-                                <td><img src={Rom[3].image} alt="rom-image" /></td>
-                                <td>11.12.2022</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>+998907111205</td>
-                                <td>Akmal</td>
-                                <td>Toshkent shahar</td>
-                                <td>120</td>
-                                <td>130</td>
-                                <td><img src={Rom[2].image} alt="rom-image" /></td>
-                                <td>11.12.2022</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr> 
-                        </tbody>
-                    </table>
+                <table className="table">
+                   <thead>
+                     <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Telefon raqam</th>
+                          <th scope="col">Ism</th>
+                          <th scope="col">Viloyat</th>
+                          <th scope="col">Balandligi</th>
+                          <th scope="col">Kengligi</th>
+                          <th scope="col">rangi</th>
+                          <th scope="col">sana</th>
+                          <th scope='col'>Tekshirildi</th>
+                          <th scope='col'>O'chirish</th>
+                          <th scope='col'>Qo'ngiroq qilish </th>
+                    </tr>
+                   </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>+998934561236</td>
+      <td>Alisher</td>
+      <td>Toshkent viloyat</td>
+      <td>180</td>
+      <td>160</td>
+      <td><img src={Rom[2].image} alt="images" /></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>+998934561236</td>
+      <td>Sulton</td>
+      <td>Andijon viloyat</td>
+      <td>180</td>
+      <td>160</td>
+      <td><img src={Rom[3].image} alt="images" /></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>+998900061236</td>
+      <td>Begzot</td>
+      <td>Jizzax viloyat</td>
+      <td>210</td>
+      <td>190</td>
+      <td><img src={Rom[3].image} alt="images" /></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>+998990061236</td>
+      <td>Bobur</td>
+      <td>Qashqadaryo viloyati viloyat</td>
+      <td>180</td>
+      <td>160</td>
+      <td><img src={Rom[2].image} alt="images" /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+  </tbody>
+</table>
                 </div>
             </div>
         </div>

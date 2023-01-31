@@ -44,33 +44,14 @@
    justify-content: center;
    align-items: center;
 }
-.list-table table{
-    width: 80%;
-    height:auto;
-    border-radius: 10px;
+.table{
+    border-radius:10px;
     overflow: hidden;
-    text-align: center;
 }
-.list-table thead {
-    width: 90%;
+.table thead{
+    background-color:  rgba(0, 119, 255, 0.63);;
 }
-.list-table th{
-    background-color: rgba(0, 119, 255, 0.63);
-}
-.list-table tr{
-    width: 100%;
-    height: 46px;
-}
-.list-table td, th{
-    margin: 0px 0px;
-    border: none;
-    line-height: 0%;
-    height: 46px;
-    outline: none;
-}
-.list-table img{
-    transform: scale(0.5);
-}
-.list-table tbody > tr:nth-child(odd){
-    background-color: rgba(166, 202, 243, 0.963);
+.table tr{
+    height: 36px;
+    align-items: center;
 }
