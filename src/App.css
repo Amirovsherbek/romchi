@@ -16,6 +16,7 @@
 .step-box{
   width: 100%;
   height: 20px;
+  margin: 15px 0px;
   display: flex;
   justify-content: center;
 }
@@ -78,7 +79,7 @@ border-radius:50%;
 }
 .color, .tokcha, .size {
  width: 100%;
- height: 710px;
+ height: 740px;
 }
 .list-rom{
   width: 100%;
@@ -377,7 +378,7 @@ font-size: 54px;
 }
 .color, .tokcha, .size {
  width: 100%;
- height: 710px;
+ height: 740px;
 }
 .body{
  width: 100%;
@@ -594,7 +595,7 @@ align-items: center;
  width: 8px;
  height: 290px;
 position: absolute;
-top: 60%;
+top: 62%;
 left: 50%;
 transform: translate(-50%,-8%);
 }
@@ -696,15 +697,15 @@ transform: translate(-50%,-8%);
    background-color: #797979;
   }
 .list-checkeds{
-  min-width: 105px;
-  height: 112px;
+  min-width: 100px;
+  height: 104px;
   display: inline;
   margin: 4px 8px;
   cursor: pointer;
 }
 .List-checkeds{
-  width: 105px;
-  height: 112px;
+  width: 100px;
+  height: 104px;
   display: inline;
   margin: 4px 8px;
   cursor: pointer;
@@ -720,7 +721,7 @@ transform: translate(-50%,-8%);
 
 .list-checkeds-active{
   min-width: 100px;
- height: 112px;
+ height: 104px;
  margin: 1px 2px;
  position: relative;
  border: 2px solid #03CB23;
@@ -728,7 +729,7 @@ transform: translate(-50%,-8%);
 }
 .List-checkeds-active{
   width: 100px;
- height: 112px;
+ height: 104px;
  margin: 1px 2px;
  position: relative;
  border: 2px solid #03CB23;
@@ -1122,12 +1123,12 @@ color: #4154F1;
 }
 .size-image{
  width: 100%;
- height:45%;
+ height:52%;
 }
 
 .size-image img{
- width: 241px;
- height: 226px;
+ width: 300px;
+ height: 300px;
 }
 .width{
  width: 90%;
@@ -1301,7 +1302,7 @@ color: #4154F1
    }
   .size, .color, .list-rom, .tokcha{
    width: 100%;
-   height: 90vh;
+   height: 110vh;
   }
  
   .ogohlantirish-title{

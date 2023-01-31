@@ -1,9 +1,7 @@
-import Catagore from './Catagore/catagore';
 import Room from './Catagore/room';
 import Admin from './Catagore/Admin';
 import NotFound from './component/error';
 import {Routes,Route} from 'react-router-dom'
-import TEST from './roms/TEST/test';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {

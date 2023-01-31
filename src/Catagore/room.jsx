@@ -3,16 +3,13 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Catagorie1 from '../roms/catagorie1/catagorie';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
-import { isEditable } from '@testing-library/user-event/dist/utils';
 function Room(){
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
    })
-   const [image,setImage]=useState([])
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(true)
    const [countPage,SetCountPage]=useState(1)
@@ -49,13 +46,7 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
             {
-                 Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
+                 Catagorie.map(item=>item.id===data.category ? <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>:"")
                }
             </div>
               <div className='color-titles'>Romni shaklini tanlang</div>
@@ -127,13 +118,7 @@ function Room(){
                     <div className='arrow'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
                       <div className="size-box-image">
                       {
-                 Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
+                 Catagorie.map(item=>item.id===data.category ? <img key={item.id} src={item.image} alt={item.alt}/>:"")
                }
                       </div>
                      <div className='arrow2'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
@@ -172,13 +157,7 @@ function Room(){
             <div className='deraza-image dc-t'>
             <div className='deraza-image dc-t'>
                {
-                 Catagorie.map(item=>{
-                  if(data.category===item.id){
-                     return (
-                        <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>
-                     )
-                  }
-                 })
+                 Catagorie.map(item=>item.id===data.category ?  <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>:"")
                 }
             </div>
               </div>
@@ -501,24 +480,24 @@ function Room(){
           
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
-   useEffect(()=>{
-                  // get images function 
+   // useEffect(()=>{
+           // get images function       
 
-      // const GetImages= async ()=>{
-      //    fetch("url",{
-      //       method:"GET",    
-      //    }
-      //    .then((res=>res.json()))
-      //    .then(res=>console.log(res))
-      //    .catch(()=>{
-      //       SetCountPage(9)
-      //    })
-      //    )
-      // }
-   },[])
+   //    const GetImages= async ()=>{
+   //       fetch("url",{
+   //          method:"GET",    
+   //       }
+   //       .then((res=>res.json()))
+   //       .then(res=>console.log(res))
+   //       .catch(()=>{
+   //          SetCountPage(9)
+   //       })
+   //       )
+   //    }
+   // },[])
   useEffect(()=>{
+   disable()
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
-    disable()
    },[data])
    return (
         <div className='deraza dc-t'>
@@ -535,27 +514,15 @@ function Room(){
             </header>
             <div className="step-box">
                <div className='step'>{
-                state.map((item,index)=>{
-                 if(item.id<6){
-                    return(
-                    <span className={item.id<countPage ? "  steps success-step":"steps step-span"} key={index}>
+                state.map(item=>item.id<6 ?
+                    
+                    <span className={item.id<countPage ? "  steps success-step":"steps step-span"} key={item.id}>
                         <span className={item.id<=countPage ? "Success-step":"step-span"}>{item.id}</span>                 
-                    </span>
-                    )
-                 }
-                 })  
+                    </span>:"")  
                }</div>
             </div>
          {
-            state.map(item=>{
-               if(countPage===item.id){
-                  return (
-                     <div key={item.id}>
-                        {item.content}
-                     </div>
-                  )
-               }
-            })
+            state.map(item=>item.id===countPage ? item.content:"")
          }
           </div>:<Component/>
           }
