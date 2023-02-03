@@ -3,6 +3,8 @@ import {useState,useEffect} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
@@ -10,6 +12,7 @@ function Room(){
       typeID:1,
       generateNumber:0,
    })
+   const [images,setImage]=useState([])
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(true)
    const [countPage,SetCountPage]=useState(1)
@@ -46,7 +49,13 @@ function Room(){
             <div className="body dc-t">
             <div className='deraza-image dc-t'>
             {
-                 Catagorie.map(item=>item.id===data.category ? <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>:"")
+                 Catagorie.map(item=>item.id===data.category ? 
+                  <LazyLoadImage key={item.id}
+                      alt={item.alt}
+                      effect="blur"
+                      className={'deraza-image-img'}
+                      src={item.image} 
+                      />:"")
                }
             </div>
               <div className='color-titles'>Romni shaklini tanlang</div>
@@ -59,7 +68,11 @@ function Room(){
                               onClick={()=>{autothion.typeID=item.Typeid
                               setAutothion({...autothion}) 
                               }} >
-                                <img  src={item.image} alt={item.Typeid} />
+                                  <LazyLoadImage key={item.id}
+                                      alt={item.Typeid}
+                                      effect="blur"
+                                      src={item.image} 
+                                       />
                              </div>
                           )
                        })
@@ -73,7 +86,11 @@ function Room(){
                         <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
                          onClick={()=>Catagoriya(item.id)} >
                            <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="succes" /></span>
-                           <img  src={item.image} alt={item.alt} />
+                           <LazyLoadImage key={item.id}
+                                      alt={item.alt}
+                                      effect="blur"
+                                      src={item.image} 
+                                       />
                         </div>
                      )
                   })
@@ -93,7 +110,7 @@ function Room(){
                      />
                   </div>
                   <button onClick={()=>Nextpage("next")}>
-                      <img src={Buyurtma.nextpage} alt="next"  />
+                      <img src={Buyurtma.nextpage} alt="next" loading='lazy' />
                   </button>
                </div>
              </div>
@@ -118,7 +135,11 @@ function Room(){
                     <div className='arrow'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
                       <div className="size-box-image">
                       {
-                 Catagorie.map(item=>item.id===data.category ? <img key={item.id} src={item.image} alt={item.alt}/>:"")
+                 Catagorie.map(item=>item.id===data.category ? <LazyLoadImage key={item.id}
+                                      alt={item.alt}
+                                      effect="blur"
+                                      src={item.image} 
+                                       />:"")
                }
                       </div>
                      <div className='arrow2'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
@@ -475,30 +496,50 @@ function Room(){
           })
           .catch((err) => {
             SetCountPage(9)
-            console.log(err)  
+            console.log(err + 'error')  
           });
+          
           
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
-   // useEffect(()=>{
-           // get images function       
-
-   //    const GetImages= async ()=>{
-   //       fetch("url",{
-   //          method:"GET",    
-   //       }
-   //       .then((res=>res.json()))
-   //       .then(res=>console.log(res))
-   //       .catch(()=>{
-   //          SetCountPage(9)
-   //       })
-   //       )
-   //    }
-   // },[])
+   const GetImages=async ()=>{
+      setLoading(false)
+      let baseURL= 'http://185.217.131.88:8080/attachment/open/'
+      {
+         let data=[]
+         if(autothion.typeID===1){
+            data=  Catagorie.filter(item=>item.Typeid===autothion.typeID )
+            .map(item=>{
+               item.image=baseURL+item.id
+               return item
+              })
+         }
+         if(autothion.typeID===2){
+           data= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+            .map(item=>{
+               item.image=baseURL+(item.id+4)
+               return item
+              })
+         }
+         if(autothion.typeID===3){
+            data= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+10)
+                return item
+               })
+          }
+         setImage([...data])  
+       }
+      setLoading(true)
+      console.log(images)
+   }
   useEffect(()=>{
    disable()
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
    },[data])
+   useEffect(()=>{
+      GetImages()
+   },[autothion.typeID])
    return (
         <div className='deraza dc-t'>
           <ToastContainer />
@@ -522,9 +563,11 @@ function Room(){
                }</div>
             </div>
          {
-            state.map(item=>item.id===countPage ? item.content:"")
+            state.map(item=>item.id===countPage ? <div key={item.id} className='windovs'>{item.content}</div>:"")
          }
-          </div>:<Component/>
+          </div>:
+    
+          <Component />
           }
         </div>
     )
