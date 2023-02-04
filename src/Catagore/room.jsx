@@ -449,10 +449,41 @@ function Room(){
       
    }
    function NumberChecked(color,id){
+      let baseURL= 'http://185.217.131.88:8080/attachment/open/'
      if(color==="rom"){
       data.colorNumber=id;
       setData({...data})
-     }
+      let datas=[]
+      if(data.colorNumber===1){
+         datas=  Catagorie.filter(item=>item.id===data.category )
+         .map(item=>{
+            return item
+           })
+      }
+      if(data.colorNumber===2){
+         datas=  Catagorie.filter(item=>item.id===data.category )
+         .map(item=>{
+            item.image=baseURL+(item.id+32)
+            return item
+           })
+      }
+      if(data.colorNumber===3){
+         datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+          .map(item=>{
+             item.image=baseURL+(item.id+63)
+             return item
+            })
+       }
+       if(data.colorNumber===4){
+         datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+          .map(item=>{
+             item.image=baseURL+(item.id+117)
+             return item
+            })
+       }
+      setImage([...datas])  
+    
+   }
      else if(color==='oyna'){
       data.glassNumber=id;
       setData({...data})
@@ -533,9 +564,18 @@ function Room(){
       setLoading(true)
       console.log(images)
    }
+   const ChangeImages=async ()=>{
+      setLoading(false)
+      let baseURL= 'http://185.217.131.88:8080/attachment/open/'
+      
+       
+      setLoading(true)
+      console.log(images)
+   }
   useEffect(()=>{
    disable()
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
+     console.log(data.category)
    },[data])
    useEffect(()=>{
       GetImages()
