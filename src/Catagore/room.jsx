@@ -454,39 +454,303 @@ function Room(){
       data.colorNumber=id;
       setData({...data})
       let datas=[]
-      if(data.colorNumber===1){
-         datas=  Catagorie.filter(item=>item.id===data.category )
-         .map(item=>{
-            return item
-           })
+      if(autothion.typeID===1){
+         if(data.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+item.id
+               return item
+              })
+         }
+         if(data.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+(item.id+32)
+               return item
+              })
+         }
+         if(data.colorNumber===3){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+64)
+                return item
+               })
+          }
+          if(data.colorNumber===4){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+96)
+                return item
+               })
+          }
       }
-      if(data.colorNumber===2){
-         datas=  Catagorie.filter(item=>item.id===data.category )
-         .map(item=>{
-            item.image=baseURL+(item.id+32)
-            return item
-           })
+      if(autothion.typeID===2){
+         if(data.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+(item.id+4)
+               return item
+              })
+         }
+         if(data.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+(item.id+32+4)
+               return item
+              })
+         }
+         if(data.colorNumber===3){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+64+4)
+                return item
+               })
+          }
+          if(data.colorNumber===4){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+96+4)
+                return item
+               })
+          }
       }
-      if(data.colorNumber===3){
-         datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
-          .map(item=>{
-             item.image=baseURL+(item.id+63)
-             return item
-            })
-       }
-       if(data.colorNumber===4){
-         datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
-          .map(item=>{
-             item.image=baseURL+(item.id+117)
-             return item
-            })
-       }
+      if(autothion.typeID===3){
+         if(data.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+(item.id+10)
+               return item
+              })
+         }
+         if(data.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===data.category )
+            .map(item=>{
+               item.image=baseURL+(item.id+32+10)
+               return item
+              })
+         }
+         if(data.colorNumber===3){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+64+10)
+                return item
+               })
+          }
+          if(data.colorNumber===4){
+            datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
+             .map(item=>{
+                item.image=baseURL+(item.id+96+10)
+                return item
+               })
+          }
+      }
       setImage([...datas])  
     
    }
+
+
      else if(color==='oyna'){
       data.glassNumber=id;
       setData({...data})
+      let datas=[]
+      if(autothion.typeID===1){
+         if(data.colorNumber===1){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+item.id
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+4)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===2){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+32)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+36)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===3){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+64)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+68)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===4){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+96)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+100)
+                  return item
+                 })
+            }
+         }
+      }
+      if(autothion.typeID===2){
+         if(data.colorNumber===1){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+4)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+10)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===2){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+36)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+42)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===3){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+68)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+74)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===4){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{item.image=baseURL+(item.id+100)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+106)
+                  return item
+                 })
+            }
+         }
+      }
+      
+      if(autothion.typeID===3){
+         if(data.colorNumber===1){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+10)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+16)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===2){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+42)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+48)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===3){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+74)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+80)
+                  return item
+                 })
+            }
+         }
+         if(data.colorNumber===4){
+            if(data.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{item.image=baseURL+(item.id+106)
+                  return item
+                 })
+            }
+            if(data.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===data.category )
+               .map(item=>{
+                  item.image=baseURL+(item.id+112)
+                  return item
+                 })
+            }
+         }
+      }
+      setImage([...datas])
      }
    }
    function Catagoriya(id){
@@ -564,15 +828,7 @@ function Room(){
       setLoading(true)
       console.log(images)
    }
-   const ChangeImages=async ()=>{
-      setLoading(false)
-      let baseURL= 'http://185.217.131.88:8080/attachment/open/'
-      
-       
-      setLoading(true)
-      console.log(images)
-   }
-  useEffect(()=>{
+    useEffect(()=>{
    disable()
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
      console.log(data.category)
