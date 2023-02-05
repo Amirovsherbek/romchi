@@ -7,6 +7,10 @@
  width: 100%;
  height: auto;
 }
+.Header{
+  width: 100%;
+  height:50px;
+}
 .dc-t{
  display: flex;
  flex-wrap: wrap;
@@ -15,8 +19,7 @@
 }
 .step-box{
   width: 100%;
-  height: 20px;
-  margin: 10px 0px;
+  height: 16px;
   display: flex;
   justify-content: center;
 }
@@ -37,8 +40,8 @@
   align-items: center;
 }
 .steps span:nth-child(1){
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +50,6 @@
    font-style: normal;
    font-weight: 600;
    font-size: 13px;
-   line-height: 18px;
    color: #FFFFFF;
 }
 .step-span{
@@ -85,7 +87,7 @@ border-radius:50%;
 }
 .list-rom{
   width: 100%;
-  height: 700px;
+  height: 740px;
 }
 .body{
  width: 100%;
@@ -167,9 +169,7 @@ border-radius:50%;
  .eshik, .derazalar{
    transform: scale(0.9);
  }
- header{
-     margin-bottom: 50px;
- }
+
 
  .type{
      transform: scale(0.8);
@@ -178,6 +178,10 @@ border-radius:50%;
 .deraza{
  width: 571px;
  height: auto;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
 }
 .deraza-child{
  width: 100%;
@@ -946,14 +950,13 @@ font-weight: 700;
 }
 .header{
  width: 100%;
- height: 36px;
+ height: 32px;
  text-align: left;
 }
 header{
  width: 90%;
- height: 42px;
+ height: 32px;
  padding-left: 20px;
- margin: 20px 0px;
 }
 .sms-input{
  width: 100%;
@@ -999,7 +1002,7 @@ header{
 }
 .logo-img{
  width: 171px;
- height: 88px;
+ transform: scale(0.8);
  cursor: pointer;
 }
 
@@ -1109,12 +1112,25 @@ color: #4154F1;
 @media only screen  and (max-width:475px){
  .deraza{
      width: 100%;
-     height: 100%;
  }
- .header{
-     width: 100%;
-     height: 36px;
+ .Header{
+  width: 100%;
+  height: 10vh;
  }
+ header{
+  width: 90%;
+  margin-bottom: 5px;
+ }
+ .logo{
+  width: 100%;
+  margin: 0px 0px;
+ }
+   .logo-img{
+    height: auto;
+    margin-top: 8px;
+     margin-left: -25px;
+    transform: scale(1);
+   }
  .size{
    font-size: 20px;
    font-weight: 500;
@@ -1124,7 +1140,8 @@ color: #4154F1;
    font-size: 18px;
  }
 .size-title{
- height: 15%;
+ height: 10%;
+ line-height: 0px;
 }
 .size-list{
  display: none;
@@ -1138,17 +1155,20 @@ color: #4154F1;
  width: 300px;
  height: 300px;
 }
+
 .width{
  width: 90%;
- height: 40%;
+ height: 25%;
+ margin-top: 10px;
  display: flex;
  flex-wrap: wrap;
  justify-content: flex-end;
- align-items: flex-start;
+ align-items: center;
 }
 .width-div button{
- margin-top: 40px;
+ margin-top: 25px;
 }
+
 .with-label label:nth-child(1){
   width: 50%;
   text-align: left; 
@@ -1166,12 +1186,14 @@ color: #4154F1
  height: 80%;
  display: flex;
  justify-content: space-between;
- align-items: flex-start;
+ align-items: center;
 }
 .width-div input:nth-child(1){
  display: inline-block;
 }
-
+.arrow2{
+  top: 68%;
+}
 .size-list input{
  display: none;
 }
@@ -1268,10 +1290,23 @@ color: #4154F1
 .active{
 
 }
-@media only screen and (max-width:471px){
+@media only screen and (max-width:475px){
   .App{
    width: 100%;
    height: auto;
+  }
+  .deraza {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .body{
+    width: 100%;
+    height: 80%;
+  }
+  .footer{
+    width: 100%;
+    height: 20%;
   }
   .catagoriya-page{
    width: 100%;
@@ -1284,39 +1319,41 @@ color: #4154F1
   }
   .list-checked-cat{
     width: 100%;
-    
+    margin-bottom: 0px;
   }
   .list-checkeds{
-   transform: scale(0.95);
+   transform: scale(0.85);
   }
   .list-checkeds-active{
-    transform: scale(0.95);
+    transform: scale(0.85);
   }
   .List-checkeds{
-    transform: scale(0.95);
+    transform: scale(0.85);
    }
    .List-checkeds-active{
-     transform: scale(0.95);
+     transform: scale(0.85);
    }
   .color-title{
    width: 80%;
-   margin: 7px 0px;
-   font-size: 24px;
+   margin: 2px 0px;
+   font-size: 18px;
+   line-height: 0px;
   }
   .color-titles{
     width: 80%;
-    margin: 15px 0px;
-    font-size: 24px;
+    font-size:16px;
+    line-height: 0px;
    }
   .size, .color, .list-rom, .tokcha{
    width: 100%;
-   height: 100vh;
+   height:85vh;
   }
- 
+   .size{
+    height:85vh;
+   }
   .ogohlantirish-title{
    width: 85%;
   }
- 
   .hudud{
    margin-top: 25px;
    margin-left: 10px;
@@ -1328,6 +1365,7 @@ color: #4154F1
  }
   .deraza{
   width:100%;
+  height: auto;
  }
   .list-checked{
    width: 90%;

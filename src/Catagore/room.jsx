@@ -121,7 +121,7 @@ function Room(){
          content:         
             <div className="size dc-t">
                 <div className="body dc-t">
-                <div className='size-title'>
+                <div className='size-title dc-t'>
                    O’lchamlarni kiriting
                 </div>
                 <div className='size-list'>
@@ -835,13 +835,26 @@ function Room(){
    },[data])
    useEffect(()=>{
       GetImages()
+      if(autothion.typeID===2){
+         data.category=5
+         setData({...data})
+      }
+     else if(autothion.typeID===3){
+         data.category=11
+         setData({...data})
+      }
+       else  if(autothion.typeID===1){
+         data.category=1
+         setData({...data})
+      }
    },[autothion.typeID])
    return (
-        <div className='deraza dc-t'>
+        <div className='deraza '>
           <ToastContainer />
           {
             loading ? <div className="deraza-child dc-t">
-            <header>
+           <div className='Header dc-t'>
+             <header>
              <div  className={'logo'}>
                 <img className='logo-img' onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
                 <NavLink to={"/admin"} className={"Nav_link"}>
@@ -858,6 +871,7 @@ function Room(){
                     </span>:"")  
                }</div>
             </div>
+          </div>
          {
             state.map(item=>item.id===countPage ? <div key={item.id} className='windovs'>{item.content}</div>:"")
          }
