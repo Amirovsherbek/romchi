@@ -5,14 +5,9 @@ import Two from './two.png'
 import Three from './three.png'
 import Four from './four.png'
 import bir from './bir.jpg'
-import ikki from './ikki.png'
 import uch from './uch.png'
-import turt from './turt.png'
-import shelfsize from './shelfSize.png'
 import Uzbekistan from './uzbekistan.png'
-
-
-
+import shelfsize from './shelfsize.png'
 import logo from './logo.svg'
 import arrow from './Arrow.png'
 import catnext from './icons/catnext.png'
@@ -69,19 +64,10 @@ export const Oyna=[
     },
     {
         id:2,
-        title:"Oq matviy",
-        image:ikki
-    },
-    {
-        id:3,
         title:"Yod shafof",
         image:uch
     },
-    {
-        id:4,
-        title:"Yod matvy",
-        image:turt
-    },
+
 ]
 export const Catagorie=[
     {
