@@ -47,20 +47,24 @@ function Room(){
          id:1,
          content:<div className='list-rom dc-t'>
             <div className="body dc-t">
-            <div className='deraza-image dc-t'>
+            <div className='Deraza-image '>
             {
-                 Catagorie.map(item=>item.id===data.category ? 
-                  <LazyLoadImage key={item.id}
+                 Catagorie.filter(item=>item.Typeid===autothion.typeID).map(item=>{ 
+                return (  <div key={item.id} className='Deraza-image-img'>
+                  <LazyLoadImage 
                       alt={item.alt}
                       effect="blur"
-                      className={'deraza-image-img'}
+                      onClick={()=>Catagoriya(item.id)}
+                      className={data.category===item.id ? "deraza-image-img deraza-active":"deraza-image-img"}
                       src={item.image} 
-                      />:"")
-               }
+                     //  style={{width:'300px',height:'300px'}}
+                      />
+                  </div>)})
+            }
             </div>
-              <div className='color-titles'>Romni shaklini tanlang</div>
-             <div className="list-checked dc-t">
-               <div className=" dc-t" style={{ width: "100%",height: "50%"}}>
+             <div className="list-checked ">
+             <div className='color-titles'>Romni shaklini tanlang</div>
+               <div className=" dc-t" style={{ width: "100%",height: "80%"}}>
                     {
                        Type.map(item=>{
                           return (
@@ -77,24 +81,6 @@ function Room(){
                           )
                        })
                     }
-               </div>
-               <div className="list-checked-cat ">
-               {
-                 Catagorie.filter(item=>item.Typeid===autothion.typeID )
-                .map(item=>{
-                     return (
-                        <div key={item.id} className={data.category===item.id ? "list-checkeds-active":"list-checkeds"}
-                         onClick={()=>Catagoriya(item.id)} >
-                           <span className={data.category===item.id ? "active":"no-active"}><img src={Buyurtma.success} alt="succes" /></span>
-                           <LazyLoadImage key={item.id}
-                                      alt={item.alt}
-                                      effect="blur"
-                                      src={item.image} 
-                                       />
-                        </div>
-                     )
-                  })
-               }
                </div>
              </div>
             </div>
