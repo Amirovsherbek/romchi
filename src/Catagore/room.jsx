@@ -124,6 +124,7 @@ function Room(){
                  Catagorie.map(item=>item.id===data.category ? <LazyLoadImage key={item.id}
                                       alt={item.alt}
                                       effect="blur"
+                                      className='deraza-image-img'
                                       src={item.image} 
                                        />:"")
                }

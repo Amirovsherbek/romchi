@@ -313,11 +313,11 @@ border-radius:50%;
  justify-content: center;
 }
 .size-box-image{
-  width: 301px;
-  height: 301px;
+  width: 290px;
+  height: 290px;
 }
 .size-box-image img{
- width: 300px;
+ width: 290px;
  height: 290px;
 }
 .footer{
@@ -441,7 +441,7 @@ font-size: 54px;
  align-items: center;
 }
 .uzb-box div{
- width: 25%;
+ width: 35%;
  height: 48px;
  display: flex;
  border: 1px solid #EBF0FF;
@@ -460,7 +460,7 @@ border-radius: 5px;
   margin-left: 3px;
 }
 .uzb-box input{
- width: 70%;
+ width: 65%;
  height: 48px;
  border: 1px solid #EBF0FF;
  border-radius: 5px;
@@ -1079,6 +1079,7 @@ header{
 .width{
  width: 80%;
  height:150px;
+ margin-top: 10px;
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
@@ -1090,7 +1091,7 @@ header{
   display: flex;
   flex-wrap: wrap;
   justify-content:center;
-  align-items: center;
+  align-items: flex-end;
 }
 .with-label label:nth-child(2){
   width: 50%;
@@ -1191,15 +1192,15 @@ color: #4154F1;
 
 .width{
  width: 90%;
- height: 25%;
- margin-top: 10px;
+ height: 35%;
+padding-top: 10px;
  display: flex;
  flex-wrap: wrap;
  justify-content: flex-end;
  align-items: center;
 }
 .width-div button{
- margin-top: 25px;
+ margin-top: 15px;
 }
 
 .with-label label:nth-child(1){
@@ -1215,8 +1216,12 @@ color: #4154F1
   width: 50%;
   font-size: 20px;
 }
+.with-label{
+  height: 30%;
+  align-items: flex-end;
+}
 .width-div{
- height: 80%;
+ height:70%;
  display: flex;
  justify-content: space-between;
  align-items: center;
