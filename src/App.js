@@ -3,6 +3,7 @@ import { Suspense,lazy } from 'react';
 import NotFound from './component/error'
 import Component from './component/Component';
 import {Routes,Route} from 'react-router-dom'
+import ReactSimplyCarouselExample from './component/carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 const Room = lazy(() => import('./Catagore/room'));
@@ -15,6 +16,7 @@ function App() {
           fallback={<Component/>}>
          <Room/></Suspense>}/>
           <Route path='/admin' element={<Admin/>}/>
+          <Route path='/carusel' element={<ReactSimplyCarouselExample/>}/>
           <Route path='*' element={<NotFound/>}/>
        </Routes>
     </div>

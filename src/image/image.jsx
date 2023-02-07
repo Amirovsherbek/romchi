@@ -22,7 +22,7 @@ export const Buyurtma={
     catnext:catnext,
     nextpage:next,
     success:success,
-    login:login
+    login:login,
 }
 export const Admin_panel={
     logo:logo,
@@ -175,7 +175,7 @@ export const Type=[
    },
    {
     Typeid:2,
-    image:'http://185.217.131.88:8080/attachment/open/11',
+    image:'http://185.217.131.88:8080/attachment/open/9',
     alt:"type2"
    },
    {

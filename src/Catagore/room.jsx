@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import ReactSimplyCarousel from 'react-simply-carousel';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
@@ -12,6 +13,7 @@ function Room(){
       typeID:1,
       generateNumber:0,
    })
+   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
    const [images,setImage]=useState([])
    const [disablet,setDisablet]=useState(true)
    const [loading,setLoading]=useState(true)
@@ -48,7 +50,62 @@ function Room(){
          content:<div className='list-rom dc-t'>
             <div className="body dc-t">
             <div className='Deraza-image '>
-            {
+            
+      <ReactSimplyCarousel
+      style={{backgroundColor:"red"}}
+        activeSlideIndex={activeSlideIndex}
+        onRequestChange={setActiveSlideIndex}
+        itemsToShow={1}
+        itemsToScroll={1}
+        containerProps={{
+         style:{
+        
+            display:"flex",
+            flexWrap:"nowrap"
+         }
+        }}
+        forwardBtnProps={{
+          //here you can also pass className, or any other button element attributes
+          style: {
+            alignSelf: 'center',
+            border: 'none',
+            color: 'white',
+            cursor: 'pointer',
+            height: 25,
+            textAlign: 'right',
+            width: 25,
+            marginLeft:"7px"
+          },
+          className:"next",
+          children: <span style={{width:"25px",height:"25px"}}><img className='img' src={Buyurtma.catnext}/></span>,
+        }}
+        backwardBtnProps={{
+          //here you can also pass className, or any other button element attributes
+          style: {
+            alignSelf: 'center',
+            border: 'none',
+            color: 'white',
+            cursor: 'pointer',
+            fontSize: '20px',
+            height: 25,
+            lineHeight: 1,
+            textAlign: 'left',
+            width: 25,
+            marginRight:"7px"
+          },
+          className:"back",
+          children: <span style={{width:"25px",height:"25px",transform: "rotate(180deg)"}}><img className='img' src={Buyurtma.catnext}/></span>,
+        }}
+        responsiveProps={[
+          {
+            itemsToShow: 1,
+            itemsToScroll: 1,
+          },
+        ]}
+        speed={400}
+        easing="ease-in-out"
+      >
+      {
                  Catagorie.filter(item=>item.Typeid===autothion.typeID).map(item=>{ 
                 return (  <div key={item.id} className='Deraza-image-img'>
                   <LazyLoadImage 
@@ -58,9 +115,12 @@ function Room(){
                       className={data.category===item.id ? "deraza-image-img deraza-active":"deraza-image-img"}
                       src={item.image} 
                      //  style={{width:'300px',height:'300px'}}
-                      />
+                      /> 
                   </div>)})
             }
+      </ReactSimplyCarousel>
+    
+            
             </div>
              <div className="list-checked ">
              <div className='color-titles'>Romni shaklini tanlang</div>
