@@ -29,7 +29,6 @@ function Admin(){
                           <th scope="col">sana</th>
                           <th scope='col'>Tekshirildi</th>
                           <th scope='col'>O'chirish</th>
-                          <th scope='col'>Qo'ngiroq qilish </th>
                     </tr>
                    </thead>
   <tbody>
@@ -41,6 +40,9 @@ function Admin(){
       <td>180</td>
       <td>160</td>
       <td><img src={Rom[2].image} alt="images" /></td>
+      <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
+       <td>{Admin_panel.delete}</td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -50,6 +52,9 @@ function Admin(){
       <td>180</td>
       <td>160</td>
       <td><img src={Rom[3].image} alt="images" /></td>
+      <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
+       <td>{Admin_panel.delete}</td>
     </tr>
     <tr>
       <th scope="row">3</th>
@@ -59,6 +64,9 @@ function Admin(){
       <td>210</td>
       <td>190</td>
       <td><img src={Rom[3].image} alt="images" /></td>
+      <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
+       <td>{Admin_panel.delete}</td>
     </tr>
     <tr>
       <th scope="row">4</th>
@@ -68,6 +76,9 @@ function Admin(){
       <td>180</td>
       <td>160</td>
       <td><img src={Rom[2].image} alt="images" /></td>
+      <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
+       <td>{Admin_panel.delete}</td>
     </tr>
     <tr>
         <td></td>
@@ -78,6 +89,9 @@ function Admin(){
         <td></td>
         <td></td>
         <td></td>
+        <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
+       <td>{Admin_panel.delete}</td>
     </tr>
     <tr>
         <td></td>
@@ -88,6 +102,8 @@ function Admin(){
         <td></td>
         <td></td>
         <td></td>
+        <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
     </tr>
     <tr>
         <td></td>
@@ -98,6 +114,8 @@ function Admin(){
         <td></td>
         <td></td>
         <td></td>
+        <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
     </tr>
     <tr>
         <td></td>
@@ -108,6 +126,8 @@ function Admin(){
         <td></td>
         <td></td>
         <td></td>
+        <td>12.05.2022</td>
+       <td><input type={'checkbox'}/></td>
     </tr>
   </tbody>
 </table>

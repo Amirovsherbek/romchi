@@ -55,3 +55,222 @@
     height: 36px;
     align-items: center;
 }
+.table tbody > tr:nth-child(odd){
+   background-color: #cccccc;
+}
+.float-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.navbar{
+    width: 100%;
+    height: 100%;
+    display:flex ;
+    justify-content: center;
+    align-items: flex-start;
+}
+.navbar-right{
+    width: 20%;
+    height: 85vh;
+     text-align: center;
+    height: 60%;
+    margin-right: 20px;
+}
+.float-container{
+    height: 100vh;
+}
+.nav-item{
+    width: 100%;
+    display: block;
+    animation: effects 12s ease-in-out infinite
+}
+.navbar-collapse{
+    width: 50px;
+}
+.prof-admin-header{
+    height:13%;
+    margin-bottom: 0px;
+    background-color:#111219;
+    animation: effects 12s ease-in-out infinite
+}
+.navbar-nav{
+    width: 100%;
+    height: auto;
+    margin-top: -100px;
+    display:flex ;
+    flex-wrap: wrap;
+}
+.container-fluid{
+    width: 100%;
+    height: 100%;
+    display:flex ;
+    align-items:flex-start ;
+}
+.navbar-collapse{
+    width: 100%;
+    height: 90%;
+    display:flex ;
+    align-items:flex-start ;
+}
+.row{
+    display: flex;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+.row-box{
+    width: 70%;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Col-md-3{
+     width: 31%;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 15px;
+    height: 142px;
+    background: #000000;
+    border-radius: 12px;
+    cursor: pointer;
+    animation: effects 12s ease-in-out infinite;
+}
+.anim{
+    animation: effects 12s ease-in-out infinite;
+}
+.Col-md-3-title{
+    width: 100%;
+    height: 20%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    line-height: 22px;
+    color: #AEAEAE;
+}
+.nav-box{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+.nav-box div:nth-child(1){
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transform: rotate(0.97deg);
+    animation: call 1s ease-in-out infinite;
+}
+.nav-box div:nth-child(2){
+    width: 50%;
+    height: 48px;
+    text-align: right;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.graph-about-box{
+    width: 100%;
+    height: 14px;
+    font-size: 14px;
+    line-height: 0px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.graph-about-box div{
+    margin: 0px 20px;  
+}
+.graph-about-box div span{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.next-mouth{
+    width: 60%;
+    height: 100%;
+    display: flex;
+     align-items: center;
+     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #F4F4F4;
+}
+.next-mouth span{
+    width: 32px;
+    height: 32px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.next-mouth img{
+    width: 32px;
+    height: 32px;
+}
+@keyframes effects {
+   0%{
+    box-shadow: 0px 0px 12px rgba(120, 155, 235, 0.787);
+   }
+   10%{
+    box-shadow: 0px 0px 12px rgba(245, 243, 118, 0.794);
+   } 
+   20%{
+    box-shadow: 0px 0px 12px rgba(210, 122, 242, 0.831);
+   } 
+   30%{
+    box-shadow: 0px 0px 12px rgba(137, 235, 120, 0.873);
+   } 
+   40%{
+    box-shadow: 0px 0px 12px rgba(120, 224, 235, 0.79);
+   } 
+   50%{
+    box-shadow: 0px 0px 12px rgba(255, 168, 97, 0.769);
+   } 
+   60%{
+    box-shadow: 0px 0px 12px rgba(120, 235, 141, 0.84);
+   } 
+   70%{
+    box-shadow: 0px 0px 12px rgba(235, 120, 201, 0.785);
+   } 
+   80%{
+    box-shadow: 0px 0px 12px rgba(235, 235, 120, 0.999);
+   } 
+   90%{
+    box-shadow: 0px 0px 12px rgba(102, 143, 239, 0.904);
+   } 
+   100%{
+    box-shadow: 0px 0px 12px rgba(120, 155, 235, 0.15);
+   } 
+}
+@keyframes call {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-5deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    75%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(-5deg);
+    }
+}

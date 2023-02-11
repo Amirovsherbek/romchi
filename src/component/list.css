@@ -1,0 +1,109 @@
+.card-about{
+    width:350px ;
+    height: 160px;
+    background-color: #D3F0E3;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius:5px;
+    margin: 18px 0px;
+    display: flex;
+    padding-top: 5px;
+    justify-content: center;
+}
+.card-about-1{
+    width: 75%;
+    height: 100%;
+}
+.card-about-1 div:nth-child(1){
+    width: 100%;
+    text-align:center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #083D25;
+}
+.card-about-1 div:nth-child(2){
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px; 
+    padding-left: 10px;
+    margin: 7px 0px;
+    line-height: 24px; 
+    color: #083D25;
+}
+.card-about-1 div:nth-child(3){
+    width: 100%; 
+    margin: 3px 0px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 10px;
+    margin: 5px 0px;
+    line-height: 18px;
+    color: #083D25;
+}
+.card-about-1 div:nth-child(4){
+    width: 100%;
+    height: 16px;
+    text-align: left;
+    padding-left: 10px;
+    margin: 5px 0px;
+}
+.card-about-1 div:nth-child(5){
+    width: 100%;
+    height: auto;
+    padding-left:10px ;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.card-about-1 div:nth-child(5) div{
+    width: auto;
+    font-family: 'Poppins'; 
+     font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #083D25;
+    
+}
+.card-about-1 button{
+    width: 120px;
+    height: 32px;
+    border-radius: 8px;
+    margin-left:10px;
+    border: none;
+    background-color: #27BC7A;
+    font-family: 'Montserrat';
+    font-style: normal;
+   font-weight: 700;
+    font-size: 12px;
+    line-height: 12px;
+   color: #FFFFFF;
+}
+.card-about-2{
+  width: 25%;
+  height: 100%;
+   display: flex;
+   justify-content:center ;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.card-about-2 button{
+    width: 51px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    background-color: #27BC7A;
+}
+
+

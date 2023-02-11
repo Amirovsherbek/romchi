@@ -9,6 +9,7 @@ import ReactSimplyCarousel from 'react-simply-carousel';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
 function Room(){
+   const baseurl='http://185.217.131.88:8080'
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
@@ -59,7 +60,7 @@ function Room(){
         itemsToScroll={1}
         containerProps={{
          style:{
-        
+            width:360,
             display:"flex",
             flexWrap:"nowrap"
          }
@@ -895,6 +896,16 @@ function Room(){
          setData({...data})
       }
    },[autothion.typeID])
+   useEffect(()=>{
+     try{
+      fetch(baseurl+'/admin/add/3',{
+         method:'GET'
+      }).then(res=>res.json())
+     }
+     catch(err){
+      console.log(err+' xatolik')
+     }
+   },[])
    return (
         <div className='deraza '>
           <ToastContainer />
