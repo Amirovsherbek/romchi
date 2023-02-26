@@ -6,8 +6,7 @@ import './Login.css'
 import { regionData } from '../region/regiondata';
 import { UserContext } from "../App"
 function SiginUp(){
-   const {state,ChangaData,Save}=useContext(UserContext)
-  
+   const {state,setState,Save}=useContext(UserContext)
    const [auth,setAuth]=useState({
       token:'',
       generateNumber:""
@@ -16,9 +15,7 @@ function SiginUp(){
     const [success,setSuccess]=useState('')
     const [loading,setLoading]=useState(true)
     const [region,setRegion]=useState("Toshkent")
-   
-   const baseurl='http://185.217.131.88:8080'
-   
+    const baseurl='http://185.217.131.88:8080'
    async function NumberChecked(){
       try{
         await fetch(baseurl+'/sms/4343245366788986756/1')
@@ -70,7 +67,6 @@ function SiginUp(){
    useEffect(()=>{
       localStorage.setItem('checkout',JSON.stringify(auth))
        },[auth])
- 
     return(
         loading ? <div className="Login dc-t">
         <div className="Login-header">
@@ -84,8 +80,11 @@ function SiginUp(){
            
             <div className=" bb ">
                <div className="dc-t bb-one">
-               <input style={{width:"80%"}} className="form-control w-70 h-90" 
-                 onChange={(e)=>ChangaData('',e.target.value,'','name')}
+               <input style={{width:"80%"}} type={'text'} className="form-control w-70 h-90" 
+                 required onChange={(e)=>{
+                  state.name=e.target.value
+                  setState({...state})
+                 }}
                   placeholder="ism"
                />
                </div>
@@ -95,10 +94,11 @@ function SiginUp(){
                 <span> +998 </span>
               </div>
             <div className="number-row ">
-              <input className="form-control w-100 h-100 "
+              <input className="form-control w-100 h-100 " required
                onChange={(e)=>{
                   setPhoneNumber(e.target.value)
-                  ChangaData('',e.target.value,'','number')
+                  state.phoneNumber=e.target.value
+                  setState({...state})
                }}
               type={'text'} placeholder={' (90) 123 45 67 '}/>
             </div>
@@ -108,7 +108,8 @@ function SiginUp(){
               <div>
              <select name="viloyat" id="viloyat" required  onChange={(e)=>{
                setRegion(e.target.value)
-                ChangaData('',e.target.value,'','city')
+               state.region=e.target.value
+                  setState({...state})
               }}>
                 <option value="Toshkent">Toshkent shahri</option>
                 <option value="Toshkentviloyat">Toshkent viloyat</option>
@@ -127,7 +128,7 @@ function SiginUp(){
              </select>
               </div>
               <div  className="text-right">
-             <select name="tuman" id="tuman"  required onChange={(e)=>ChangaData('',e.target.value,'','region')}>
+             <select name="tuman" id="tuman"  required >
                {
                   regionData.map(item=>item.typeID===region ? <option key={item.id} value={item.value}>
                       {item.value}

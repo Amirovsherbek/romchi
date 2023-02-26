@@ -7,7 +7,8 @@ function Home(){
            <img src={Logins.logotip} alt={'logotip'}/>
         </div>
          <div className="Login-body">
-            <img src="https://logobank.uz:8005/media/logos_png/akfa_group-01.png" alt="akfa"/>
+            <img className="my-2" src={Logins.akfa} alt="akfa"/>
+            <img style={{width:'70%',height:'300px'}} src={Logins.menu} alt="akfa"/>
          </div>
          <div className="login-footer text-center">
             <NavLink to={'/checked'} className="btn xxx px-5 link btn-primary py-2">Narxni hisoblash <span><img 

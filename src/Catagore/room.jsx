@@ -1,5 +1,5 @@
 import {NavLink}  from 'react-router-dom'
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import Component from '../component/Component';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,8 +8,10 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 import ReactSimplyCarousel from 'react-simply-carousel';
 import { Buyurtma ,Oyna,Rom,ShelfSizes,Ozbekiston,Type,Catagorie} from '../image/image';
 import "../App.css"
+import { UserContext } from '../App';
 function Room(){
    const baseurl='http://185.217.131.88:8080'
+   const {state,setState,Save}=useContext(UserContext)
    const [autothion,setAutothion]=useState({
       typeID:1,
       generateNumber:0,
@@ -45,13 +47,12 @@ function Room(){
       name: "",
       count:1
    })
-   const state=[
+   const State=[
       {
          id:1,
          content:<div className='list-rom dc-t'>
             <div className="body dc-t">
-            <div className='Deraza-image '>
-            
+            <div className='Deraza-image '>      
       <ReactSimplyCarousel
       style={{backgroundColor:"red"}}
         activeSlideIndex={activeSlideIndex}
@@ -113,15 +114,13 @@ function Room(){
                       alt={item.alt}
                       effect="blur"
                       onClick={()=>Catagoriya(item.id)}
-                      className={data.category===item.id ? "deraza-image-img deraza-active":"deraza-image-img"}
+                      className={state.category===item.id ? "deraza-image-img deraza-active":"deraza-image-img"}
                       src={item.image} 
                      //  style={{width:'300px',height:'300px'}}
                       /> 
                   </div>)})
             }
-      </ReactSimplyCarousel>
-    
-            
+      </ReactSimplyCarousel>            
             </div>
              <div className="list-checked ">
              <div className='color-titles'>Romni shaklini tanlang</div>
@@ -152,7 +151,8 @@ function Room(){
                      <input type={'number'} 
                      placeholder={"1"}
                      onChange={(e)=>{
-                        data.count=parseInt(e.target.value)
+                        state.count=parseInt(e.target.value)
+                        setState({...state})
                      }}
                      />
                   </div>
@@ -174,15 +174,15 @@ function Room(){
                 <div className='size-list'>
                   <label htmlFor="height">Balandligi(sm)</label> 
                   <input type={'number'} name={"height"} id={"height"}
-                  onChange={(e)=>{data.height=parseInt(e.target.value);
-                      setData({...data})}} placeholder={'sm'}
+                  onChange={(e)=>{state.height=parseInt(e.target.value);
+                      setState({...state})}} placeholder={'sm'}
                   />
                 </div>
                  <div className='size-image dc-t'>
                     <div className='arrow'><img style={{width:"8px",height:"280px"}} src={Buyurtma.arrow} alt="" /></div>
                       <div className="size-box-image">
                       {
-                 Catagorie.map(item=>item.id===data.category ? <LazyLoadImage key={item.id}
+                 Catagorie.map(item=>item.id===state.category ? <LazyLoadImage key={item.id}
                                       alt={item.alt}
                                       effect="blur"
                                       className='deraza-image-img'
@@ -199,12 +199,12 @@ function Room(){
                       </div>
                       <div className='width-div'>
                       <input type={'number'} name={"height"} id={"height"}
-                        onChange={(e)=>{data.height=parseInt(e.target.value);
-                       setData({...data})}} placeholder={'sm'}
+                        onChange={(e)=>{state.height=parseInt(e.target.value);
+                       setState({...state})}} placeholder={'sm'}
                       />
                         <input type={'number'} id={"width"} name={"width"}
-                          onChange={(e)=>{data.width=parseInt(e.target.value);
-                         setData({...data})}} placeholder={'sm'}/>
+                          onChange={(e)=>{state.width=parseInt(e.target.value);
+                         setState({...state})}} placeholder={'sm'}/>
                         <div>
                         <button >Plastic (PVX)</button>
                         </div>
@@ -226,7 +226,7 @@ function Room(){
             <div className='deraza-image dc-t'>
             <div className='deraza-image dc-t'>
                {
-                 Catagorie.map(item=>item.id===data.category ?  <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>:"")
+                 Catagorie.map(item=>item.id===state.category ?  <img className='deraza-image-img' key={item.id} src={item.image} alt={item.alt}/>:"")
                 }
             </div>
               </div>
@@ -239,9 +239,9 @@ function Room(){
                         key={item.id} 
                         onClick={()=>{
                            NumberChecked("rom",item.id)
-                        }}><span className={data.colorNumber===item.id ? "active":"no-active"}>
+                        }}><span className={state.colorNumber===item.id ? "actives":"no-actives"}>
                            <img src={Buyurtma.success} alt="" /></span>
-                           <img className={data.colorNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
+                           <img className={state.colorNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
                             src={item.image} alt={item.title} />
                            <br />
                            <div>{item.title}</div>
@@ -259,9 +259,9 @@ function Room(){
                         key={item.id} 
                         onClick={()=>{
                            NumberChecked("oyna",item.id)
-                        }}><span className={data.glassNumber===item.id ? "active":"no-active"}>
+                        }}><span className={state.glassNumber===item.id ? "actives":"no-actives"}>
                            <img src={Buyurtma.success} alt="" /></span>
-                           <img className={data.glassNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
+                           <img className={state.glassNumber===item.id ? "rom-color-img-active":"rom-color-div-img"}
                             src={item.image} alt={item.title} />
                            <br />
                            <div>{item.title}</div>
@@ -294,7 +294,7 @@ function Room(){
                      shelfSize.map(item=>{
                        return (
                         <div key={item.id} 
-                        className={data.shelfSize===item.shelfSize ? "qalinlig-div-activ":"qalinlig-div"}
+                        className={state.shelfSize===item.shelfSize ? "qalinlig-div-activ":"qalinlig-div"}
                         onClick={()=>ShelfSize(item.shelfSize)}>{item.value}</div>
                        )
                      })
@@ -303,8 +303,8 @@ function Room(){
               </div>
               <div className="hudud">
                <label htmlFor="hudud">Hududingizni tanlang</label>
-               <select name="hudud" id="hudud" onChange={(e)=>{data.regionId=e.target.value
-               setData({...data})
+               <select name="hudud" id="hudud" onChange={(e)=>{state.region=e.target.value
+               setState({...state})
                }}>
                <option value="Toshkent">Toshkent shahri</option>
                       <option value="Toshkent">Toshkent viloyat</option>
@@ -350,8 +350,8 @@ function Room(){
          <div>
         
          <input type="text" className='name-users' onChange={(e)=>{
-            data.name=e.target.value 
-            setData({...data}) 
+            state.name=e.target.value 
+            setState({...state}) 
          }}
          placeholder={" Ism"}
          />   
@@ -362,12 +362,12 @@ function Room(){
                  <b>+998</b>
                </div>
                <input type={'tel'} onChange={(e)=>{
-                  data.phoneNumber=e.target.value
-                  setData({...data}) 
+                  state.phoneNumber=e.target.value
+                  setState({...state}) 
                }} placeholder={"(90) 123 45 67"}/>
             </div>
         
-         <button className='nextPage' disabled={disablet} onClick={Requred}>Keyingisi</button>
+         <button className='nextPage'  onClick={Requred}>Keyingisi</button>
       </div>
       },
       {
@@ -467,7 +467,7 @@ function Room(){
          //http://185.217.131.88:8080
          fetch('http://185.217.131.88:8080/ariza/register',{
             method:"POST",
-            body:localStorage.getItem("buyurtma_page"),
+            body:JSON.stringify(state),
            headers:{  'Content-Type':'application/json; charset=UTF-8',
            'Accept':'application/json',
            'X-Requested-With':'XMLHttpRequest',
@@ -499,32 +499,32 @@ function Room(){
    function NumberChecked(color,id){
       let baseURL= 'http://185.217.131.88:8080/attachment/open/'
      if(color==="rom"){
-      data.colorNumber=id;
-      setData({...data})
+      state.colorNumber=id;
+      setState({...state})
       let datas=[]
       if(autothion.typeID===1){
-         if(data.colorNumber===1){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+item.id
                return item
               })
          }
-         if(data.colorNumber===2){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+(item.id+32)
                return item
               })
          }
-         if(data.colorNumber===3){
+         if(state.colorNumber===3){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+64)
                 return item
                })
           }
-          if(data.colorNumber===4){
+          if(state.colorNumber===4){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+96)
@@ -533,28 +533,28 @@ function Room(){
           }
       }
       if(autothion.typeID===2){
-         if(data.colorNumber===1){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+(item.id+4)
                return item
               })
          }
-         if(data.colorNumber===2){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+(item.id+32+4)
                return item
               })
          }
-         if(data.colorNumber===3){
+         if(state.colorNumber===3){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+64+4)
                 return item
                })
           }
-          if(data.colorNumber===4){
+          if(state.colorNumber===4){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+96+4)
@@ -563,28 +563,28 @@ function Room(){
           }
       }
       if(autothion.typeID===3){
-         if(data.colorNumber===1){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+(item.id+10)
                return item
               })
          }
-         if(data.colorNumber===2){
-            datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            datas=  Catagorie.filter(item=>item.id===state.category )
             .map(item=>{
                item.image=baseURL+(item.id+32+10)
                return item
               })
          }
-         if(data.colorNumber===3){
+         if(state.colorNumber===3){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+64+10)
                 return item
                })
           }
-          if(data.colorNumber===4){
+          if(state.colorNumber===4){
             datas= Catagorie.filter(item=>item.Typeid===autothion.typeID )
              .map(item=>{
                 item.image=baseURL+(item.id+96+10)
@@ -598,45 +598,45 @@ function Room(){
 
 
      else if(color==='oyna'){
-      data.glassNumber=id;
-      setData({...data})
+      state.glassNumber=id;
+      setState({...state})
       let datas=[]
       if(autothion.typeID===1){
-         if(data.colorNumber===1){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+item.id
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+4)
                   return item
                  })
             }
          }
-         if(data.colorNumber===2){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+32)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+36)
                   return item
                  })
             }
          }
-         if(data.colorNumber===3){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===3){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+64)
                   return item
@@ -650,16 +650,16 @@ function Room(){
                  })
             }
          }
-         if(data.colorNumber===4){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===4){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+96)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+100)
                   return item
@@ -668,63 +668,63 @@ function Room(){
          }
       }
       if(autothion.typeID===2){
-         if(data.colorNumber===1){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+4)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+10)
                   return item
                  })
             }
          }
-         if(data.colorNumber===2){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+36)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+42)
                   return item
                  })
             }
          }
-         if(data.colorNumber===3){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===3){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+68)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+74)
                   return item
                  })
             }
          }
-         if(data.colorNumber===4){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===4){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{item.image=baseURL+(item.id+100)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+106)
                   return item
@@ -734,63 +734,63 @@ function Room(){
       }
       
       if(autothion.typeID===3){
-         if(data.colorNumber===1){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===1){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+10)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+16)
                   return item
                  })
             }
          }
-         if(data.colorNumber===2){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===2){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+42)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+48)
                   return item
                  })
             }
          }
-         if(data.colorNumber===3){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===3){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+74)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+80)
                   return item
                  })
             }
          }
-         if(data.colorNumber===4){
-            if(data.glassNumber===1 ){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+         if(state.colorNumber===4){
+            if(state.glassNumber===1 ){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{item.image=baseURL+(item.id+106)
                   return item
                  })
             }
-            if(data.glassNumber===2){
-               datas=  Catagorie.filter(item=>item.id===data.category )
+            if(state.glassNumber===2){
+               datas=  Catagorie.filter(item=>item.id===state.category )
                .map(item=>{
                   item.image=baseURL+(item.id+112)
                   return item
@@ -802,12 +802,12 @@ function Room(){
      }
    }
    function Catagoriya(id){
-      data.category=id
-      setData({...data})
+      state.category=id
+      setState({...state})
    }
    function ShelfSize(id){
-      data.shelfSize=id
-      setData({...data})
+      state.shelfSize=id
+      setState({...state})
    }
    function Requred(){
       setLoading(false)
@@ -841,8 +841,7 @@ function Room(){
             SetCountPage(9)
             console.log(err + 'error')  
           });
-          
-          
+  
    }
    const notify = () => toast("Bu  raqamdan ariza qabul qilingan,iltimos boshqa raqam kiriting");
    const GetImages=async ()=>{
@@ -874,26 +873,24 @@ function Room(){
          setImage([...data])  
        }
       setLoading(true)
-      console.log(images)
    }
     useEffect(()=>{
    disable()
     localStorage.setItem("buyurtma_page",JSON.stringify(data))
-     console.log(data.category)
    },[data])
    useEffect(()=>{
       GetImages()
       if(autothion.typeID===2){
-         data.category=5
-         setData({...data})
+         state.category=5
+         setState({...state})
       }
      else if(autothion.typeID===3){
-         data.category=11
-         setData({...data})
+         state.category=11
+         setState({...state})
       }
        else  if(autothion.typeID===1){
-         data.category=1
-         setData({...data})
+         state.category=1
+         setState({...state})
       }
    },[autothion.typeID])
    useEffect(()=>{
@@ -912,17 +909,15 @@ function Room(){
           {
             loading ? <div className="deraza-child dc-t">
            <div className='Header dc-t'>
-             <header>
-             <div  className={'logo'}>
+             <header className='bg-light'>
+             <div  className={'logo my-2'}>
                 <img className='logo-img' onClick={()=>SetCountPage(1)} src={Buyurtma.logotip} alt="Logo" />
-                <NavLink to={"/admin"} className={"Nav_link"}>
-                <img  src={Buyurtma.login} alt="login" />
-                </NavLink>
+               
              </div>
             </header>
             <div className="step-box">
                <div className='step'>{
-                state.map(item=>item.id<6 ?
+                State.map(item=>item.id<6 ?
                     
                     <span className={item.id<countPage ? "  steps success-step":"steps step-span"} key={item.id}>
                         <span className={item.id<=countPage ? "Success-step":"step-span"}>{item.id}</span>                 
@@ -931,7 +926,7 @@ function Room(){
             </div>
           </div>
          {
-            state.map(item=>item.id===countPage ? <div key={item.id} className='windovs'>{item.content}</div>:"")
+            State.map(item=>item.id===countPage ? <div key={item.id} className='windovs'>{item.content}</div>:"")
          }
           </div>:
     

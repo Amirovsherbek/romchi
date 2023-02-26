@@ -10,9 +10,10 @@ import Login from './Authorion/Login';
 import PrivateRoute from './Private/Private';
 import Home from './Home/Home';
 import Checked from './Authorion/Checked';
+import Message from './Authorion/message';
 import SiginUp from './Authorion/SiginUp';
 import {Maps}  from './component/list';
-import { useState,useContext,createContext } from 'react';
+import { useState,createContext } from 'react';
 import './App.css';
 export const UserContext = createContext();
 const Room = lazy(() => import('./Catagore/room'));
@@ -22,14 +23,15 @@ function App() {
     setDataChart(res)
   }
   const [state,setState]=useState({ 
-    category: 0, 
-    colorNumber: 0, 
+    category: 1, 
+    colorNumber: 1, 
     companyId: 0, 
     createAt: 325436547, 
-    glassNumber: 0,
+    glassNumber: 1,
      height: 0, 
      shelfSize: 0, 
-    type: 0, 
+    type: 0,
+    count:1, 
     width: 0,
     beSaved: true,
     phoneNumber: '',
@@ -38,7 +40,7 @@ function App() {
     })
   return (
     <div className="App dc-t">
-      <UserContext.Provider value={{state}}>
+      <UserContext.Provider value={{state,setState}}>
       <Routes>
           {/* <Route path='/' element={<Catagore/>}/> */}
           <Route path="/" element={<PrivateRoute>
@@ -51,16 +53,17 @@ function App() {
              fallback={<Component/>}>
              <Room/></Suspense>
           </PrivateRoute>}/>
-          <Route path='/admin' element={<Dashboard dataRes={data} getData={dataChart}/>}/>
+          <Route path='/admin' element={<PrivateRoute><Dashboard dataRes={data} getData={dataChart}/></PrivateRoute>}/>
           {/* <Route path='/list' element={<List/>}/> */}
      
           <Route path='/admin/hisobot' element={<Admin/>}/>
           <Route path='/map' element={<Maps/>}/>
           <Route path='*' element={<NotFound/>}/>
-
+          
           <Route path='/auth' element={<Login/>}/>
           <Route path='/checked' element={<Checked/>}/>
           <Route path='/SiginUp' element={<SiginUp/>}/>
+          <Route path='/auth/sms' element={<Message/>}/>
        </Routes>
       </UserContext.Provider>
     </div>

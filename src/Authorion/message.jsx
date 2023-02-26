@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { json, NavLink } from "react-router-dom"
-import { login } from "../image/image"
+import { Logins } from "../image/image"
 import './Login.css'
 function Message(){
    const [message,setMessage]=useState('')
@@ -17,7 +17,7 @@ function Message(){
    return(
         <div className="Login dc-t">
               <div className="Login-header">
-                 <img src={login.logotip} alt={'logotip'}/>
+                 <img src={Logins.logotip} alt={'logotip'}/>
               </div>
               <div className="Login-body ">
                  <div className="Login-number-sms ">

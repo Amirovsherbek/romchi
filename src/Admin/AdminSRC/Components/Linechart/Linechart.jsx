@@ -16,45 +16,46 @@ import {
 
 
 
-  // const data = [
-  //   {
-  //     name: "1",
-  //     pv: 2400,
-  //   },
-  //   {
-  //     name: "2",
-  //     pv: 1398,
-  //   },
-  //   {
-  //     name: "3",
-  //     pv: 9800,
-  //   },
-  //   {
-  //     name: "4",
-  //     pv: 3908,
-  //   },
-  //   {
-  //     name: "5",
-  //     pv: 4800,
-  //   },
-  //   {
-  //     name: "6",
-  //     pv: 3800,
-  //   },
-  //   {
-  //     name: "7",
-  //     pv: 4300,
-  //   },
-  // ];
+  const data = [
+    {
+      name: "1",
+      pv: 2400,
+    },
+    {
+      name: "2",
+      pv: 1398,
+    },
+    {
+      name: "3",
+      pv: 9800,
+    },
+    {
+      name: "4",
+      pv: 3908,
+    },
+    {
+      name: "5",
+      pv: 4800,
+    },
+    {
+      name: "6",
+      pv: 3800,
+    },
+    {
+      name: "7",
+      pv: 4300,
+    },
+  ];
 
   const Linechart = ({id, color, dataItem, idCard,}) => {
     const [chart, setChart] = useState([]);
-    
+    const baseurl='http://185.217.131.88:8080'
     useEffect(() => {
       async function chartDataGet(index){
         if(dataItem.length !== 0){
           try {
-            const { data } = await axios.get(`getBody/${index}/${dataItem.year}/${dataItem.month}`)
+            const { data } = await axios.get(baseurl+`/admin/getBody/${index}/${dataItem.year}/${dataItem.month}`)
+            console.log(data)
             setChart(data)
           } catch (error) {
             toast("Bu oyda ma'lumotlar yo'q!", {type: "error"})
@@ -67,7 +68,7 @@ import {
 
   return (
     <div className="w-100 ms-4 mt-3">
-      <ResponsiveContainer width="100%" height={500}>
+      <ResponsiveContainer width="90%" height={350}>
         <AreaChart
           className="chart-line mt-2"
           width={1140}

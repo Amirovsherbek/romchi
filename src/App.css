@@ -782,7 +782,7 @@ transform: translate(-50%,-8%);
  border: 2px solid #03CB23;
  box-shadow: 0px 0px 5px #03CB23;
 }
-.active{
+.actives{
   width: 15px;
   height: 15px;
   top:-6%;
@@ -790,10 +790,10 @@ transform: translate(-50%,-8%);
   transform: scale(1.5);
   position: absolute;
 }
-.no-active{
+.no-actives{
   display: none;
 }
-.active img{
+.actives img{
   width: 15px;
   height:15px;
 }

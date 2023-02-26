@@ -10,7 +10,7 @@ function Checked(){
              </div>
              <div className="Login-body text-center">
                 <div className='checked-modal dc-t'>
-                    <NavLink to={'/auth'}
+                    <NavLink to={'/pirce/calulate'}
                       className="btn xxx px-5 link btn-primary py-2">Kirish</NavLink>
                     <NavLink to={'/SiginUp'}
                        className="btn xxx px-5 link btn-primary py-2">Ro’yxatdan o’tish</NavLink>

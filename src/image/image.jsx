@@ -6,6 +6,8 @@ import Three from './three.png'
 import Four from './four.png'
 import bir from './bir.jpg'
 import uch from './uch.png'
+import akfa from './akfa.png'
+import menu from './menu.png'
 import Uzbekistan from './uzbekistan.png'
 import shelfsize from './shelfsize.png'
 import logo from './logo.svg'
@@ -37,7 +39,9 @@ export const Logins={
     logotip:logo,
     uzbekistan:Uzbekistan,
     success:success,
-    next:nextpage
+    next:nextpage,
+    akfa:akfa,
+    menu:menu
 }
 export const ShelfSizes=shelfsize;
 export const Ozbekiston=Uzbekistan;
