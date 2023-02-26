@@ -1,0 +1,192 @@
+.Login{
+    width: 475px;
+    height:auto;
+    overflow: hidden; 
+}
+.dc-t{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.Login-header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.Login-header img{
+    width:201px;
+    height: 90px;
+    transform: scale(0.6);
+}
+.Login-body{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.login-title{
+    width: 100%;
+    height: 50px;
+}
+.login-title div{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 30px;
+    text-align: center;
+    color: #0C9700;
+}
+.Login-number{
+    width: 80%;
+    height: 350px;
+    text-align: center;
+}
+.bb{
+    width: 100%;
+    height: 75%;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.Login-number-sms{
+    width: 80%;
+    height: 350px;
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    align-items: center;
+}
+.Login-number-sms div:nth-child(1){
+   width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #00A0FA;
+}
+.Login-number-sms div:nth-child(2){
+     width: 100%;
+     height: 50%;
+     font-family: 'DM Sans';
+     font-style: normal;
+     font-weight: 700;
+     font-size: 20px;
+     text-align: center;
+     color: #00A0FA;
+ }
+ .bb-one{
+     width: 100%;
+     height: 60px;
+    }
+.bb-two {
+    width: 25%;
+    height: 48px;
+    border: 1px solid #EBF0FF;
+    border-radius: 5px;
+}
+.bb-two img{
+    width: 30px;
+    height: 22px;
+}
+.bb-two span{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.5px;
+    color: #5C6379;
+}
+.number-row{
+    width: 73%;
+    height:48px;
+}
+.form-control{
+    height: 48px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.5px; 
+    color: #000000;
+}
+
+.link{
+     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 180%;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.link:hover{
+    color: #FFFFFF;
+}
+.region{
+    width: 100%;
+    height: 25%;
+    display:flex ;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.region div:nth-child(1){
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+}
+.region div:nth-child(2){
+    width: 50%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+.region select{
+    width: 80%;
+    height: 50px;
+    color: #FFFFFF;
+    background: #00A0FA;
+    box-shadow: 0px 10px 30px rgba(0, 160, 250, 0.24); 
+    border-radius: 5px;
+}
+.checked-modal{
+    width: 301px;
+    height: 268px;
+    background: #FAFAFA;
+    box-shadow: 0px 0px 51px 10px rgba(0, 0, 0, 0.29);
+     border-radius: 25px;
+}
+@media only screen and (max-width:475px) {
+    .Login{
+        width: 100%;
+        height: 90vh;
+    }
+    .Login-header{
+        height: 20%;
+        margin-top: 0px;
+    }
+    .Login-body{
+        height: 70%;
+    }
+    .Login-footer{
+        width: 100%;
+        height: 10%;
+    }
+}

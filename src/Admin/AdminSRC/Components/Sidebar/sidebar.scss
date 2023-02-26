@@ -1,0 +1,21 @@
+.wrapper{
+    max-width: 350px;
+    background: #000;
+    height: 100vh;
+}
+
+.active {
+    position: relative;
+    &::after{
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: -20px;
+        transform: translateY(-50%);
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #0500ff;
+        box-shadow: 0px 0px 21px #0500ff, 0px 0px 17px #0500ff, 0px 0px 29px #0500ff;
+    }
+  }
