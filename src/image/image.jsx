@@ -41,7 +41,7 @@ export const Logins={
     success:success,
     next:nextpage,
     akfa:akfa,
-    menu:menu
+    menu:menu   
 }
 export const ShelfSizes=shelfsize;
 export const Ozbekiston=Uzbekistan;

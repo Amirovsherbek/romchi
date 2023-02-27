@@ -1,0 +1,28 @@
+.inp {
+  width: 91.02px;
+  background: #f4f4f4;
+  border: 1px solid #00a0fa;
+  border-radius: 5px;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0.3rem #00b3fa;
+  }
+}
+
+.label {
+  font-size: 12px;
+}
+
+.home__btn{
+  width: 149.58px;
+  height: 37.41px;
+  background: #1ee23d;
+  border-radius: 7px;
+  border: none;
+  color: #fff;
+
+  &:hover{
+    opacity: 0.8;
+  }
+}

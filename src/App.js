@@ -12,12 +12,18 @@ import Home from './Home/Home';
 import Checked from './Authorion/Checked';
 import Message from './Authorion/message';
 import SiginUp from './Authorion/SiginUp';
+import Color from './eshik/pages/Color/Color';
+import Homes from './eshik/pages/Home/Homes';
+import Detail from './eshik/pages/Detail/Detail';
+import Category from './eshik/pages/Category/Category';
 import {Maps}  from './component/list';
 import { useState,createContext } from 'react';
 import './App.css';
 export const UserContext = createContext();
 const Room = lazy(() => import('./Catagore/room'));
 function App() {
+
+
   const [dataChart, setDataChart] = useState("");
   const data = (res) => {
     setDataChart(res)
@@ -55,7 +61,11 @@ function App() {
           </PrivateRoute>}/>
           <Route path='/admin' element={<PrivateRoute><Dashboard dataRes={data} getData={dataChart}/></PrivateRoute>}/>
           {/* <Route path='/list' element={<List/>}/> */}
-     
+            
+           <Route path='/eshik/color' element={<PrivateRoute><Color/></PrivateRoute>}/> 
+           <Route path='/eshik/homes' element={<PrivateRoute><Homes/></PrivateRoute>}/> 
+           <Route path='/eshik/detail' element={<PrivateRoute><Detail/></PrivateRoute>}/> 
+           <Route path='/eshik/category' element={<PrivateRoute><Category/></PrivateRoute>}/> 
           <Route path='/admin/hisobot' element={<Admin/>}/>
           <Route path='/map' element={<Maps/>}/>
           <Route path='*' element={<NotFound/>}/>
