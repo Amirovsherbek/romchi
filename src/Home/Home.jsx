@@ -11,7 +11,7 @@ function Home(){
             <img style={{width:'70%',height:'300px'}} src={Logins.menu} alt="akfa"/>
          </div>
          <div className="login-footer text-center">
-            <NavLink to={'/checked'} className="btn xxx px-5 link btn-primary py-2">Narxni hisoblash <span><img 
+            <NavLink to={'/deraza/pirce/calulate'} className="btn xxx px-5 link btn-primary py-2">Narxni hisoblash <span><img 
             style={{width:"15px",height:'15px'}} className={"mx-3"}
              src={Logins.next} alt={"ne xt"}/></span></NavLink>
          </div>

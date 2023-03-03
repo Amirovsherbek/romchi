@@ -22,13 +22,11 @@ import './App.css';
 export const UserContext = createContext();
 const Room = lazy(() => import('./Catagore/room'));
 function App() {
-
-
   const [dataChart, setDataChart] = useState("");
   const data = (res) => {
     setDataChart(res)
   }
-  const [state,setState]=useState({ 
+  const [state,setState]=useState({
     category: 1, 
     colorNumber: 1, 
     companyId: 0, 
@@ -43,37 +41,32 @@ function App() {
     phoneNumber: '',
     name: '',
     region:''
-    })
+  })
   return (
     <div className="App dc-t">
       <UserContext.Provider value={{state,setState}}>
       <Routes>
           {/* <Route path='/' element={<Catagore/>}/> */}
-          <Route path="/" element={<PrivateRoute>
-             <Suspense 
+          <Route path="/" element={<Suspense 
              fallback={<Component/>}>
              <Home/></Suspense>
-            </PrivateRoute>}/>
-          <Route path="/pirce/calulate" element={<PrivateRoute>
+            }/>
+          <Route path="/deraza/pirce/calulate" element={
              <Suspense 
              fallback={<Component/>}>
-             <Room/></Suspense>
-          </PrivateRoute>}/>
-          <Route path='/admin' element={<PrivateRoute><Dashboard dataRes={data} getData={dataChart}/></PrivateRoute>}/>
+             <Room/></Suspense>}/>
+          <Route path='/admin' element={<Dashboard dataRes={data} 
+            getData={dataChart}/>}/>
           {/* <Route path='/list' element={<List/>}/> */}
             
-           <Route path='/eshik/color' element={<PrivateRoute><Color/></PrivateRoute>}/> 
-           <Route path='/eshik/homes' element={<PrivateRoute><Homes/></PrivateRoute>}/> 
-           <Route path='/eshik/detail' element={<PrivateRoute><Detail/></PrivateRoute>}/> 
-           <Route path='/eshik/category' element={<PrivateRoute><Category/></PrivateRoute>}/> 
+          <Route path='/eshik/color' element={<Color/>}/> 
+          <Route path='/eshik/homes' element={<Homes/>}/> 
+          <Route path='/eshik/detail' element={<Detail/>}/> 
+          <Route path='/eshik/category' element={<Category/>}/> 
           <Route path='/admin/hisobot' element={<Admin/>}/>
           <Route path='/map' element={<Maps/>}/>
           <Route path='*' element={<NotFound/>}/>
-          
-          <Route path='/auth' element={<Login/>}/>
-          <Route path='/checked' element={<Checked/>}/>
-          <Route path='/SiginUp' element={<SiginUp/>}/>
-          <Route path='/auth/sms' element={<Message/>}/>
+         
        </Routes>
       </UserContext.Provider>
     </div>
