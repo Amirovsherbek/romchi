@@ -1,12 +1,12 @@
 import React from "react";
 
 //images
-import logo from "../../assets/Aiwork-logo.svg";
+import logo from "../../../image/logo.svg";
 import doorImg from "../../assets/door.svg";
-import white from "../../assets/white.svg";
-import zalatoyDub from "../../assets/zalatoy-dub.svg";
-import dubMokko from "../../assets/dub-mokko.svg";
-import mokeyAsfalt from "../../assets/mokry-asfalt.svg";
+import white from "../../../image/oq.png";
+import zalatoyDub from "../../../image/malla.png";
+import dubMokko from "../../../image/mokko.png";
+import mokeyAsfalt from "../../../image/temir.png";
 
 import "./color.scss";
 import { Link } from "react-router-dom";
@@ -24,20 +24,21 @@ const Color = () => {
           <strong className="color-title">Eshikni rangini tanlang</strong>
           <div className="d-flex justify-content-between gap-3">
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src={white} width={70} height={70} alt="" />
+              <img src={white} width={70} height={70} alt="s" style={{borderRadius:'8px'}} />
               {/* <span className="white bg-white"></span> */}
               <p className="color-text">Oq</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src={zalatoyDub} width={70} height={70} alt="" />
+              <img src={zalatoyDub} width={70} height={70} alt="s" style={{borderRadius:'8px'}}/>
               <p className="color-text">Zalatoy Dub</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src={dubMokko} width={70} height={70} alt="" />
+              <img src={dubMokko} width={70} height={70} alt="s" style={{borderRadius:'8px'}}/>
               <p className="color-text">Dub Mokko</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src={mokeyAsfalt} width={70} height={70} alt="" />
+              <img src={mokeyAsfalt} width={70} height={70} alt="s" 
+                style={{borderRadius:'8px'}}/>
               <p className="color-text">Mokry asfalt</p>
             </div>
           </div>
@@ -45,19 +46,19 @@ const Color = () => {
           <strong className="color-title">oyna rangini tanlang</strong>
           <div className="d-flex justify-content-between gap-3">
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src="" width={70} height={70} alt="" />
+              <img src="" width={70} height={70} alt="s" style={{borderRadius:'8px'}}/>
               <p className="color-text">Oq shafof</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src="" width={70} height={70} alt="" />
+              <img src="" width={70} height={70} alt="s" style={{borderRadius:'8px'}}/>
               <p className="color-text">Oq matviy</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src="" width={70} height={70} alt="" />
+              <img src="" width={70} height={70} alt="s" style={{borderRadius:'8px'}} />
               <p className="color-text">Yod shafof</p>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src="" width={70} height={70} alt="" />
+              <img src="" width={70} height={70} alt="s" style={{borderRadius:'8px'}}/>
               <p className="color-text">Yod matvy</p>
             </div>
           </div>

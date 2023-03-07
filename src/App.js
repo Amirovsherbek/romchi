@@ -6,12 +6,9 @@ import Component from './component/Component';
 import Dashboard from './Admin/AdminSRC/Pages/Dashboard/Dashboard'
 import {Routes,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './Authorion/Login';
-import PrivateRoute from './Private/Private';
+import Catagore from './Dashboard/Dashboard';
 import Home from './Home/Home';
-import Checked from './Authorion/Checked';
-import Message from './Authorion/message';
-import SiginUp from './Authorion/SiginUp';
+import PhoneHandle from './component/PhoneNumber';
 import Color from './eshik/pages/Color/Color';
 import Homes from './eshik/pages/Home/Homes';
 import Detail from './eshik/pages/Detail/Detail';
@@ -51,6 +48,10 @@ function App() {
              fallback={<Component/>}>
              <Home/></Suspense>
             }/>
+             <Route path="/dashboard" element={<Suspense 
+             fallback={<Component/>}>
+             <Catagore/></Suspense>
+            }/>
           <Route path="/deraza/pirce/calulate" element={
              <Suspense 
              fallback={<Component/>}>
@@ -58,7 +59,7 @@ function App() {
           <Route path='/admin' element={<Dashboard dataRes={data} 
             getData={dataChart}/>}/>
           {/* <Route path='/list' element={<List/>}/> */}
-            
+          <Route path='/phoneNumber' element={<PhoneHandle/>}/>
           <Route path='/eshik/color' element={<Color/>}/> 
           <Route path='/eshik/homes' element={<Homes/>}/> 
           <Route path='/eshik/detail' element={<Detail/>}/> 

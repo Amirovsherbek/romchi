@@ -1,6 +1,7 @@
 import {NavLink}  from 'react-router-dom'
 import {useState,useEffect,useContext} from 'react'
 import Component from '../component/Component';
+import PhoneHandle from '../component/PhoneNumber';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -361,10 +362,7 @@ function Room(){
                  <img src={Ozbekiston} alt="uzb" />
                  <b>+998</b>
                </div>
-               <input type={'tel'} onChange={(e)=>{
-                  state.phoneNumber=e.target.value
-                  setState({...state}) 
-               }} placeholder={"(90) 123 45 67"}/>
+                <PhoneHandle/>
             </div>
         
          <button className='nextPage'  onClick={Requred}>Keyingisi</button>
@@ -801,6 +799,7 @@ function Room(){
       setImage([...datas])
      }
    }
+  
    function Catagoriya(id){
       state.category=id
       setState({...state})

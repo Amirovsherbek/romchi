@@ -1,6 +1,6 @@
 // import fortichka from './fortichka.png'
 // import eshik from './eshik.png'
-import One from "./one.jpg"
+import One from "./oq.png"
 import Two from './two.png'
 import Three from './three.png'
 import Four from './four.png'
@@ -17,6 +17,7 @@ import login from './icons/login.png'
 import nextpage from './icons/nextpage.png'
 import success from './icons/success.png'
 import next from './arrow-right-short.svg'
+import eshik from '../eshik/assets/door.png'
 export const Buyurtma={
     logotip:logo,
     arrow:arrow,
@@ -43,6 +44,7 @@ export const Logins={
     akfa:akfa,
     menu:menu   
 }
+
 export const ShelfSizes=shelfsize;
 export const Ozbekiston=Uzbekistan;
 export const Rom=[
