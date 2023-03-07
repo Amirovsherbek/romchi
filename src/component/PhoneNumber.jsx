@@ -27,8 +27,9 @@ export default function PhoneHandle() {
     }
     
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{width:"70%"}} className='mx-2'>
         <input
+           className='w-100 dc-t '
           type="text"
           id="phone-number"
           name="phone-number"

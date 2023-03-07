@@ -362,7 +362,7 @@ function Room(){
                  <img src={Ozbekiston} alt="uzb" />
                  <b>+998</b>
                </div>
-                <PhoneHandle/>
+                <PhoneHandle />
             </div>
         
          <button className='nextPage'  onClick={Requred}>Keyingisi</button>
