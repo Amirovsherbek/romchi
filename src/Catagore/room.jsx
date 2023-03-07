@@ -365,7 +365,7 @@ function Room(){
                 <PhoneHandle />
             </div>
         
-         <button className='nextPage'  onClick={Requred}>Keyingisi</button>
+         <button className='nextPage'  onClick={Requred}>Keyingisis</button>
       </div>
       },
       {
