@@ -44,7 +44,7 @@ function App() {
     name: '',
     region:''
   })
-  
+  console.log(state)
   return (
     <div className="App dc-t">
       <UserContext.Provider value={{state,setState}}>

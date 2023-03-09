@@ -77,6 +77,26 @@
 .active{
    background-color: #1EE23D;
 }
+.width-div-window{
+    width: 80%;
+    height: 60px;
+}
+.width-div-input label{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color:#00A0FA;
+}
+.width-div-input{
+    width: 50%;
+    height: 60px;
+}
+.material{
+    width: 200px;
+    background-color: #1EE23D;
+    font-family: "Open Sans";
+}
 @media only screen and (max-width:475px){
     .window-list {
         width: 100%;
@@ -93,5 +113,10 @@
     .footer{
         width: 100%;
         height: 15%;
+    }
+}
+@media (min-width:475.1px ) and (max-width:1500000px) {
+    #mobile{
+       display: none;
     }
 }

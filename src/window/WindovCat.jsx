@@ -84,7 +84,7 @@ function WindovCat(){
                       <div  className={'windows-step-box'} style={{backgroundSize:'10%'}}>
                       
                        <div><NavLink to={'/windov/price/catagrie'} className={'window-step-link '}>1</NavLink></div>
-                        <div><NavLink to={'/'} className={'window-step-link'}>2</NavLink></div>
+                        <div><NavLink to={'/windov/price/size'} className={'window-step-link'}>2</NavLink></div>
                         <div><NavLink to={'/'} className={'window-step-link'}>3</NavLink></div>
                         <div><NavLink to={'/'} className={'window-step-link'}>4</NavLink></div>
                         <div><NavLink to={'/'} className={'window-step-link'}>5</NavLink></div>
@@ -172,12 +172,11 @@ function WindovCat(){
                              <div key={item.Typeid} className={autothion.typeID===item.Typeid ? "List-checkeds-active":"List-checkeds"}
                               onClick={()=>{autothion.typeID=item.Typeid
                               setAutothion({...autothion}) 
-                              }} >
+                              }} >  
                                   <LazyLoadImage key={item.id}
                                       alt={item.Typeid}
                                       effect="blur"
-                                      src={item.image} 
-                                       />
+                                      src={item.image} />
                              </div>
                           )
                        })
@@ -187,19 +186,16 @@ function WindovCat(){
             </div>
               <div className='dc-t footer '>
                <div id="change-page">
-                  <div className="count">
+                  <div className="count ">
                   <TextField
-                    InputLabelProps={{
-                       style:{ fontSize:'24px'}
-                    }}
-                    type={'number'}
-                     inputProps={{
-                        transform:'scale(0.7)'
-                     }}
-                     style={{transform:"scale(0.8)"}}
+                     type={'number'}
                      id="outlined-required"
                      label="Soni"
-                     defaultValue="1"
+                    //  defaultValue="1"
+                     onChange={(e)=>{
+                        state.count=parseInt(e.target.value)
+                        setState({...state})
+                     }}
                    />
                   </div>
                   <Fab color="primary" aria-label="add">
