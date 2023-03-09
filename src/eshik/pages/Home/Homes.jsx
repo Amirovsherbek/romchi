@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-//image
 import logo from "../../assets/Aiwork-logo.svg";
 import doorImg from "../../assets/door.svg";
 import arrowHeight from "../../assets/arrow-height.svg";
 import arrowWidth from "../../assets/arrow-width.svg";
-
 import "./home.scss";
-
 const Homes = () => {
   return (
     <div className="container-wrap shadow px-4">

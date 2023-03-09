@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.12",
+    "@mui/styled-engine-sc": "^5.11.11",
     "@pbe/react-yandex-maps": "^1.2.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -25,7 +31,7 @@
     "react-toastify": "^9.1.1",
     "react-waveform": "^0.1.0",
     "recharts": "^2.3.2",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

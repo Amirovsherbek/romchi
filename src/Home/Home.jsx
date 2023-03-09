@@ -6,12 +6,12 @@ function Home(){
          <div className="Login-header">
            <img src={Logins.logotip} alt={'logotip'}/>
         </div>  
-         <div className="Login-body">
+         <div className="Login-body dc-t mb-2">
             <img className="my-2" src={Logins.akfa} alt="akfa"/>
             <img style={{width:'70%',height:'300px'}} src={Logins.menu} alt="akfa"/>
          </div>
          <div className="login-footer text-center">
-            <NavLink to={'/deraza/pirce/calulate'} className="btn xxx px-5 link btn-primary py-2">Narxni hisoblash <span><img 
+            <NavLink to={'/catagore'} className="btn xxx px-5 link btn-primary py-2">Narxni hisoblash <span><img 
             style={{width:"15px",height:'15px'}} className={"mx-3"}
              src={Logins.next} alt={"ne xt"}/></span></NavLink>
          </div>

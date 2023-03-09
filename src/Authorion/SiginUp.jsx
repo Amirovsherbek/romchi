@@ -80,7 +80,7 @@ function SiginUp(){
            
             <div className=" bb ">
                <div className="dc-t bb-one">
-               <input style={{width:"80%"}} type={'text'} className="form-control w-70 h-90" 
+               <input style={{width:"100%"}} type={'text'} className="form-control w-70 h-90" 
                  required onChange={(e)=>{
                   state.name=e.target.value
                   setState({...state})

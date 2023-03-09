@@ -7,6 +7,8 @@ import Dashboard from './Admin/AdminSRC/Pages/Dashboard/Dashboard'
 import {Routes,Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Catagore from './Dashboard/Dashboard';
+import WindovCat from './window/WindovCat';
+import WindovSize from './window/WindovSize';
 import Home from './Home/Home';
 import PhoneHandle from './component/PhoneNumber';
 import Color from './eshik/pages/Color/Color';
@@ -23,6 +25,9 @@ function App() {
   const data = (res) => {
     setDataChart(res)
   }
+  const [settings,setSettings]=useState({
+    menu:1
+  })
   const [state,setState]=useState({
     category: 1, 
     colorNumber: 1, 
@@ -39,6 +44,7 @@ function App() {
     name: '',
     region:''
   })
+  
   return (
     <div className="App dc-t">
       <UserContext.Provider value={{state,setState}}>
@@ -48,14 +54,18 @@ function App() {
              fallback={<Component/>}>
              <Home/></Suspense>
             }/>
-             <Route path="/dashboard" element={<Suspense 
+             <Route path="/catagore" element={<Suspense 
              fallback={<Component/>}>
              <Catagore/></Suspense>
             }/>
-          <Route path="/deraza/pirce/calulate" element={
+          <Route path="/windov/price/catagrie" element={
              <Suspense 
              fallback={<Component/>}>
-             <Room/></Suspense>}/>
+             <WindovCat/></Suspense>}/>
+             <Route path="/windov/price/size" element={
+             <Suspense 
+             fallback={<Component/>}>
+             <WindovSize/></Suspense>}/>
           <Route path='/admin' element={<Dashboard dataRes={data} 
             getData={dataChart}/>}/>
           {/* <Route path='/list' element={<List/>}/> */}
@@ -67,7 +77,6 @@ function App() {
           <Route path='/admin/hisobot' element={<Admin/>}/>
           <Route path='/map' element={<Maps/>}/>
           <Route path='*' element={<NotFound/>}/>
-         
        </Routes>
       </UserContext.Provider>
     </div>
